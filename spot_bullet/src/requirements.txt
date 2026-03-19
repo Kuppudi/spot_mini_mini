@@ -3,13 +3,30 @@ numpy==1.26.4
 scipy==1.11.4
 matplotlib==3.8.2
 
+# Added from previous setup
+cloudpickle==3.0.0
+contourpy==1.1.1
+cycler==0.12.1
+fonttools==4.47.0
+gym-notices==0.0.8
+importlib-metadata==7.0.1
+importlib-resources==6.1.1
+kiwisolver==1.4.5
+packaging==23.2
+Pillow==10.1.0
+pyparsing==3.1.1
+python-dateutil==2.8.2
+six==1.16.0
+zipp==3.17.0
+
 # Simulation
-#pybullet==3.2.6
+# pybullet==3.2.6
 
 # RL / ML
 torch>=2.0.0
 stable-baselines3==2.3.0
 gym==0.26.2
+tensorboard
 
 # Data
 pandas==2.1.4
@@ -22,8 +39,8 @@ plotly==5.18.0
 # Sensors / Filtering
 filterpy==1.4.5
 
-# Vision 
-#opencv-python==4.9.0.80
+# Vision
+# opencv-python==4.9.0.80
 
 # Utilities
 tqdm==4.66.1
