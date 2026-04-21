@@ -1,3 +1,155 @@
+# Dashboard Setup
+
+Hello and welcome to SpotMini's local dashboard
+
+This guide explains how to run the SpotMini dashboard on a new machine.
+
+Please download or clone this repository first.
+
+This dashboard is inside the `Sim Display` folder.
+
+Path = ______/spot_mini_mini/spot_bullet/Sim Display
+
+Important:
+- The dashboard itself is a local Streamlit app.
+- To open it like a desktop window, you also need `pywebview`.
+- If `pywebview` is not installed, the launcher will still open the dashboard in your browser.
+- This dashboard template does not require ROS or PyBullet just to open the UI.
+
+## FOR WINDOWS USERS:
+
+### 1. Open terminal and go to the project folder
+```bash
+cd path\to\spot_mini_mini
+```
+
+### 2. Create environment
+```bash
+python -m venv spotmini-dashboard-env
+```
+
+### 3. Activate
+```bash
+spotmini-dashboard-env\Scripts\activate
+```
+
+### 4. Upgrade pip
+```bash
+python -m pip install --upgrade pip setuptools wheel
+```
+
+### 5. Install dashboard dependencies
+```bash
+python -m pip install streamlit pywebview
+```
+
+### 6. Run
+```bash
+python "spot_bullet\Sim Display\launch_dashboard.py"
+```
+
+## FOR MAC(INTEL) USERS:
+
+### 1. Open terminal and go to the project folder
+```bash
+cd /path/to/spot_mini_mini
+```
+
+### 2. Create environment
+```bash
+python3 -m venv spotmini-dashboard-env
+```
+
+### 3. Activate
+```bash
+source spotmini-dashboard-env/bin/activate
+```
+
+### 4. Upgrade pip
+```bash
+python3 -m pip install --upgrade pip setuptools wheel
+```
+
+### 5. Install dashboard dependencies
+```bash
+python3 -m pip install streamlit pywebview
+```
+
+### 6. Run
+```bash
+python3 "spot_bullet/Sim Display/launch_dashboard.py"
+```
+
+## FOR MAC(APPLE Silicon) USERS:
+
+### 1. Open terminal and go to the project folder
+```bash
+cd /path/to/spot_mini_mini
+```
+
+### 2. Create environment
+```bash
+conda create -n spotmini-dash python=3.10 -y
+```
+
+### 3. Activate
+```bash
+conda activate spotmini-dash
+```
+
+### 4. Upgrade pip
+```bash
+python -m pip install --upgrade pip wheel
+```
+
+### 5. Pin setuptools because some project environments can break with newer versions
+```bash
+python -m pip install "setuptools<82"
+```
+
+### 6. Install dashboard dependencies
+```bash
+python -m pip install streamlit pywebview
+```
+
+### 7. Run
+```bash
+python "spot_bullet/Sim Display/launch_dashboard.py"
+```
+
+## WHAT SHOULD HAPPEN
+
+- The launcher will start the local dashboard.
+- If `pywebview` is installed correctly, the dashboard will open in a local desktop window.
+- If `pywebview` is missing, it will open in your default browser instead.
+
+## OPTIONAL
+
+### Change the port
+
+If port `8502` is busy, you can change it before running the launcher.
+
+Windows:
+```bash
+set SPOTMINI_DASHBOARD_PORT=8503
+python "spot_bullet\Sim Display\launch_dashboard.py"
+```
+
+Mac:
+```bash
+export SPOTMINI_DASHBOARD_PORT=8503
+python3 "spot_bullet/Sim Display/launch_dashboard.py"
+```
+
+## FILES USED
+
+- `display.py` = the dashboard UI
+- `launch_dashboard.py` = starts Streamlit and opens the local window
+- `README.md` = short summary
+- `DASHBOARD_SETUP.txt` = full tutorial for a new machine
+
+---
+
 # Hello and welcome to SpotMini's software
 
 This github repository was repurposed for our capstone project from the original author, Maurice Rahme, and the SpotMini community. 
@@ -12,7 +164,7 @@ From spot_bullet, please find the src folder, and please find spot_tester.py
 
 Path = ________/spot_mini_mini/spot_bullet/src
 
-
+ 
 
 
 
