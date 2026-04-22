@@ -6,3 +6,30 @@ dist/
 build/
 _build/
 *.pyc
+
+# local envs
+spot_bullet/src/.conda-spotml/
+spot_bullet/src/.venv/
+.venv/
+venv/
+
+# mac/python junk
+__pycache__/
+*.pyc
+.DS_Store
+
+spot_bullet/src/.conda-spotml/
+spot_bullet/src/.venv/
+.venv/
+venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+spot_bullet/src/.conda-spotml/
+spot_bullet/src/.venv/
+.venv/
+venv/
+__pycache__/
+*.pyc
+.DS_Store
