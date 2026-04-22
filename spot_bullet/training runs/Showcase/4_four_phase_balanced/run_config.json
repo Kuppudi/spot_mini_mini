@@ -1,0 +1,17 @@
+{
+  "auto_yaw_gain": 0.55,
+  "body_height_offset": 0.0,
+  "episode_steps": 2000,
+  "gait_geometry": "balanced",
+  "gait_mode": "four_phase",
+  "height_field": false,
+  "n_envs": 4,
+  "output_root": "/Users/Diviprakash/Documents/New project/spot_mini_mini/spot_bullet/training_runs",
+  "progress_bar": false,
+  "render": false,
+  "run_name": "four_phase_balanced_geom",
+  "seed": 42,
+  "skip_env_check": true,
+  "target_forward_speed": 0.06,
+  "timesteps": 250000
+}

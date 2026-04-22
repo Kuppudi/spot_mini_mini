@@ -49,18 +49,18 @@ class GUI:
                                       cameraTargetPosition=quadruped_pos)
         keys = pb.getKeyboardEvents()
         # Keys to change camera
-        if keys.get(100):  # D
+        if keys.get(ord('u')):  # U -> yaw right
             self.cyaw += 1
-        if keys.get(97):  # A
+        if keys.get(ord('h')):  # H -> yaw left
             self.cyaw -= 1
-        if keys.get(99):  # C
+        if keys.get(ord('j')):  # J -> pitch up
             self.cpitch += 1
-        if keys.get(102):  # F
+        if keys.get(ord('k')):  # K -> pitch down
             self.cpitch -= 1
-        if keys.get(122):  # Z
-            self.cdist += .01
-        if keys.get(120):  # X
-            self.cdist -= .01
+        if keys.get(ord('y')):  # Y -> zoom out
+            self.cdist += 0.01
+        if keys.get(ord('i')):  # I -> zoom in
+            self.cdist -= 0.01
         if keys.get(27):  # ESC
             pb.disconnect()
             sys.exit()

@@ -1,3 +1,4 @@
+#spot_tester.py
 #!/usr/bin/env python
 
 import numpy as np
@@ -6,17 +7,32 @@ import copy
 import sys
 import time
 import os
+import pybullet as pb
 
 import argparse
-import cv2
+try:
+    import cv2
+except ModuleNotFoundError as exc:
+    raise SystemExit(
+        "Missing dependency: opencv-python\n"
+        "Install OpenCV in your SpotMini environment, then rerun:\n"
+        "  conda install -c conda-forge opencv -y\n"
+        "or:\n"
+        "  python -m pip install opencv-python==4.9.0.80"
+    ) from exc
 
-sys.path.append('../../')
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.abspath(os.path.join(CURRENT_DIR, "..", ".."))
+
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
 
 from spotmicro.GymEnvs.spot_bezier_env import spotBezierEnv
-from spotmicro.util.gui import GUI
+from spotmicro.util.gui import GUI, IndividualLegGUI
 from spotmicro.Kinematics.SpotKinematics import SpotModel
 from spotmicro.Kinematics.LieAlgebra import RPY
 from spotmicro.GaitGenerator.Bezier import BezierGait
+from spotmicro.GaitGenerator.gait_generator_4_phase import BezierGait4Phase
 from spotmicro.spot_env_randomizer import SpotEnvRandomizer
 from imu_controller import IMUController
 from camera_sensor import SpotCamera
@@ -50,6 +66,14 @@ parser.add_argument("-ar",
 parser.add_argument("-dr",
                     "--DontRandomize",
                     help="Do NOT Randomize State and Environment.",
+                    action='store_true')
+parser.add_argument("-il",
+                    "--IndividualLegs",
+                    help="Control each leg with individual XYZ sliders instead of gait commands.",
+                    action='store_true')
+parser.add_argument("-g4",
+                    "--FourPhaseGait",
+                    help="Use a one-leg-at-a-time four-phase Bezier gait instead of the default trot scheduler.",
                     action='store_true')
 ARGS = parser.parse_args()
 
@@ -154,28 +178,28 @@ def get_keyboard_command(env):
     SwingPeriod = 0.25
 
     # Forward / backward
-    if key_down('r') or key_down('R'):
+    if key_down('w') or key_down('W'):
         target_step += 0.05
-    if key_down('f') or key_down('F'):
+    if key_down('s') or key_down('S'):
         target_step -= 0.05
 
     # Turn left / right
-    if key_down('e') or key_down('E'):
+    if key_down('q') or key_down('Q'):
         target_yaw += 0.95
-    if key_down('t') or key_down('T'):
+    if key_down('e') or key_down('E'):
         target_yaw -= 0.95
 
     # Left / right strafe
-    if key_down('d') or key_down('D'):
+    if key_down('a') or key_down('A'):
         target_lat += 0.9
-    if key_down('h') or key_down('H'):
+    if key_down('d') or key_down('D'):
         target_lat -= 0.9
 
     # Faster / slower gait
-    if key_down('q') or key_down('Q'):
-        target_vel = 1.2
-    if key_down('a') or key_down('A'):
+    if key_down('z') or key_down('Z'):   # slower
         target_vel = 0.8
+    if key_down('x') or key_down('X'):   # faster
+        target_vel = 1.2
 
     # Turn in place still needs a small support step
     if target_yaw != 0.0 and target_step == 0.0:
@@ -225,6 +249,13 @@ def main():
     print("  D/H -> strafe left/right")
     print("  E/T -> turn left/right")
     print("  Q/A -> faster/slower gait")
+    if ARGS.IndividualLegs:
+        print("Individual leg mode enabled:")
+        print("  Use FL/FR/BL/BR dx/dy/dz sliders to move each foot independently.")
+        print("  Use body_x/body_y/body_z and body_roll/body_pitch/body_yaw to move the body.")
+    elif ARGS.FourPhaseGait:
+        print("Four-phase gait mode enabled:")
+        print("  Each leg swings in its own quarter of the gait cycle using Bezier foot arcs.")
 
     seed = 0
     max_timesteps = 4e6
@@ -293,13 +324,19 @@ def main():
     imu_controller.reset()
 
     # Keeping this in case you want it later
-    g_u_i = GUI(env.spot.quadruped)
+    if ARGS.IndividualLegs:
+        g_u_i = IndividualLegGUI(env.spot.quadruped)
+    else:
+        g_u_i = GUI(env.spot.quadruped)
 
     spot = SpotModel()
     T_bf0 = spot.WorldToFoot
     T_bf = copy.deepcopy(T_bf0)
 
-    bzg = BezierGait(dt=env._time_step)
+    if ARGS.FourPhaseGait:
+        bzg = BezierGait4Phase(dt=env._time_step)
+    else:
+        bzg = BezierGait(dt=env._time_step)
     bz_step = BezierStepper(dt=env._time_step, mode=0)
 
     # Use zero action so random action does not interfere with keyboard gait control
@@ -328,17 +365,38 @@ def main():
         imu_pos, imu_orn = imu_controller.compute(state)
 
         # Read GUI slider values
-        gui_data = g_u_i.UserInput()
-        gui_pos = np.array(gui_data[0])
-        gui_orn = np.array(gui_data[1])
+        try:
+            gui_data = g_u_i.UserInput()
+        except pb.error:
+            if ARGS.IndividualLegs:
+                g_u_i = IndividualLegGUI(env.spot.quadruped)
+            else:
+                g_u_i = GUI(env.spot.quadruped)
+            gui_data = g_u_i.UserInput()
 
-        pos = kb_pos + imu_pos
-        orn = kb_orn + imu_orn
+        if ARGS.IndividualLegs:
+            gui_pos = np.array(gui_data[0])
+            gui_orn = np.array(gui_data[1])
+            leg_offsets = gui_data[2]
+            pos = gui_pos + imu_pos
+            orn = gui_orn + imu_orn
+            StepLength = 0.0
+            LateralFraction = 0.0
+            YawRate = 0.0
+            StepVelocity = 0.0
+            ClearanceHeight = 0.0
+            PenetrationDepth = 0.0
+            SwingPeriod = 0.2
+        else:
+            gui_pos = np.array(gui_data[0])
+            gui_orn = np.array(gui_data[1])
+            pos = kb_pos + imu_pos
+            orn = kb_orn + imu_orn
 
-        if StepLength > 0.01:
-            pos[2] = gui_pos[2] + imu_pos[2]
+            if StepLength > 0.01:
+                pos[2] = gui_pos[2] + imu_pos[2]
 
-        gui_data = g_u_i.UserInput()
+        
 
         if t % 100 == 0:
             print("GUI DATA:", gui_data)
@@ -367,25 +425,30 @@ def main():
         BR_phases.append(env.spot.LegPhases[3])
 
         # Get desired foot poses
-        T_bf = bzg.GenerateTrajectory(StepLength,
-                                      LateralFraction,
-                                      YawRate,
-                                      StepVelocity,
-                                      T_bf0,
-                                      T_bf,
-                                      ClearanceHeight,
-                                      PenetrationDepth,
-                                      contacts)
+        if ARGS.IndividualLegs:
+            T_bf = copy.deepcopy(T_bf0)
+            for leg, offset in leg_offsets.items():
+                T_bf[leg][:3, 3] += offset
+        else:
+            T_bf = bzg.GenerateTrajectory(StepLength,
+                                          LateralFraction,
+                                          YawRate,
+                                          StepVelocity,
+                                          T_bf0,
+                                          T_bf,
+                                          ClearanceHeight,
+                                          PenetrationDepth,
+                                          contacts)
 
-        # Redirect forward Bezier stepping into pure sideways stepping
-        if abs(LateralFraction) > 0.01:
-            side_sign = 1.0 if LateralFraction > 0.0 else -1.0
-            T_bf = redirect_forward_step_to_sideways(
-                T_bf0,
-                T_bf,
-                side_sign=side_sign,
-                keep_z=True
-            )
+            # Redirect forward Bezier stepping into pure sideways stepping
+            if abs(LateralFraction) > 0.01:
+                side_sign = 1.0 if LateralFraction > 0.0 else -1.0
+                T_bf = redirect_forward_step_to_sideways(
+                    T_bf0,
+                    T_bf,
+                    side_sign=side_sign,
+                    keep_z=True
+                )
 
         joint_angles = spot.IK(orn, pos, T_bf)
 
@@ -409,6 +472,16 @@ def main():
             if ARGS.AutoReset:
                 state = env.reset()
                 imu_controller.reset()
+                if ARGS.IndividualLegs:
+                    g_u_i = IndividualLegGUI(env.spot.quadruped)
+                else:
+                    g_u_i = GUI(env.spot.quadruped)
+                T_bf = copy.deepcopy(T_bf0)
+                bzg.reset()
+                bz_step = BezierStepper(dt=env._time_step, mode=0)
+                continue
+            print("Episode ended. Rerun with --AutoReset to restart automatically after a fall.")
+            break
 
         t += 1
 

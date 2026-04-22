@@ -1,8 +1,25 @@
-import streamlit as st
+import json
+import os
+import signal
+import subprocess
+import sys
 from datetime import datetime
+from pathlib import Path
+
+import streamlit as st
+
+
+APP_DIR = Path(__file__).resolve().parent
+RUNTIME_DIR = APP_DIR / ".runtime" / "ml_camera"
+FRAME_PATH = RUNTIME_DIR / "latest_camera.jpg"
+STATUS_PATH = RUNTIME_DIR / "status.json"
+PID_PATH = RUNTIME_DIR / "worker.pid"
+LOG_PATH = RUNTIME_DIR / "worker.log"
+WORKER_PATH = APP_DIR / "ml_camera_worker.py"
+TRAINING_RUNS_DIR = APP_DIR.parent / "training_runs"
 
 st.set_page_config(
-    page_title="Quadruped Robot Control UI",
+    page_title="SpotMini Dashboard",
     page_icon="🤖",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -148,6 +165,7 @@ div[data-testid="stVerticalBlock"]:has(> div:empty) {
 def init_state():
     defaults = {
         "mode": "Trot",
+        "control_mode": "Auto",
         "recording": False,
         "lights": False,
         "zoom": False,
@@ -184,16 +202,190 @@ def mission_select(label):
     st.session_state.last_action = f"Selected mission: {label}"
 
 
+def set_control_mode(mode):
+    if mode not in {"Auto", "Manual"}:
+        return
+    if st.session_state.control_mode == mode:
+        return
+
+    st.session_state.control_mode = mode
+    st.session_state.last_action = f"Switched control to {mode.lower()} mode"
+    if mode == "Manual":
+        st.session_state.mission_status = "Manual Control"
+        add_notification("Control Mode", "Robot switched to manual movement mode.", "yellow")
+    else:
+        if st.session_state.mission_status == "Manual Control":
+            st.session_state.mission_status = "Idle"
+        add_notification("Control Mode", "Robot switched to auto movement mode.", "lime")
+
+
+def discover_playable_runs():
+    runs = []
+    if not TRAINING_RUNS_DIR.exists():
+        return runs
+
+    for run_dir in sorted(
+        [path for path in TRAINING_RUNS_DIR.iterdir() if path.is_dir()],
+        key=lambda path: path.stat().st_mtime,
+        reverse=True,
+    ):
+        best_model = run_dir / "best_model" / "best_model.zip"
+        if not best_model.exists():
+            continue
+
+        terrain_profile = "flat"
+        gait_mode = "trot"
+        config_path = run_dir / "run_config.json"
+        if config_path.exists():
+            try:
+                config = json.loads(config_path.read_text(encoding="utf-8"))
+                terrain_profile = config.get("terrain_profile") or terrain_profile
+                gait_mode = config.get("gait_mode") or gait_mode
+            except Exception:
+                pass
+
+        runs.append(
+            {
+                "label": f"{run_dir.name} ({terrain_profile}, {gait_mode})",
+                "path": str(run_dir),
+                "name": run_dir.name,
+            }
+        )
+    return runs
+
+
+def discover_worker_python():
+    env_override = os.environ.get("SPOTMINI_ML_PYTHON")
+    candidates = []
+    if env_override:
+        candidates.append(Path(env_override).expanduser())
+
+    candidates.extend(
+        [
+            APP_DIR.parent / "src" / ".conda-spotml" / "bin" / "python",
+            APP_DIR.parent / "spotmini-env" / "bin" / "python",
+            APP_DIR.parent / "src" / ".venv" / "bin" / "python",
+            Path(sys.executable),
+        ]
+    )
+
+    seen = set()
+    for candidate in candidates:
+        candidate = candidate.resolve() if candidate.exists() else candidate
+        candidate_str = str(candidate)
+        if candidate_str in seen:
+            continue
+        seen.add(candidate_str)
+        if candidate.exists():
+            return candidate_str
+    return str(Path(sys.executable))
+
+
+def read_status():
+    if not STATUS_PATH.exists():
+        return {}
+    try:
+        return json.loads(STATUS_PATH.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+
+def read_log_tail(max_lines=12):
+    if not LOG_PATH.exists():
+        return ""
+    try:
+        lines = LOG_PATH.read_text(encoding="utf-8", errors="replace").splitlines()
+    except Exception:
+        return ""
+    return "\n".join(lines[-max_lines:])
+
+
+def read_worker_pid():
+    if not PID_PATH.exists():
+        return None
+    try:
+        return int(PID_PATH.read_text(encoding="utf-8").strip())
+    except Exception:
+        return None
+
+
+def worker_is_running():
+    pid = read_worker_pid()
+    if pid is None:
+        return False
+    try:
+        os.kill(pid, 0)
+    except OSError:
+        return False
+    return True
+
+
+def start_ml_camera_worker(run_dir):
+    if worker_is_running():
+        return False
+
+    RUNTIME_DIR.mkdir(parents=True, exist_ok=True)
+    worker_python = discover_worker_python()
+    with open(LOG_PATH, "a", encoding="utf-8") as log_file:
+        log_file.write(
+            f"\n[{datetime.now().isoformat(timespec='seconds')}] Starting ML camera worker for {run_dir} with {worker_python}\n"
+        )
+
+    with open(LOG_PATH, "a", encoding="utf-8") as log_file:
+        subprocess.Popen(
+            [
+                worker_python,
+                str(WORKER_PATH),
+                "--run-dir",
+                run_dir,
+                "--output-dir",
+                str(RUNTIME_DIR),
+            ],
+            cwd=str(APP_DIR),
+            stdout=log_file,
+            stderr=subprocess.STDOUT,
+            text=True,
+            start_new_session=os.name != "nt",
+        )
+    return True
+
+
+def stop_ml_camera_worker():
+    pid = read_worker_pid()
+    if pid is None:
+        return False
+    try:
+        os.kill(pid, signal.SIGTERM)
+        return True
+    except OSError:
+        return False
+
+
+def render_camera_placeholder():
+    st.markdown(
+        "<div class='camera-box'>ML CAMERA FEED OFFLINE</div>",
+        unsafe_allow_html=True,
+    )
+
+
+AVAILABLE_RUNS = discover_playable_runs()
+DEFAULT_RUN_PATH = AVAILABLE_RUNS[0]["path"] if AVAILABLE_RUNS else None
+if "ml_run_path" not in st.session_state:
+    st.session_state.ml_run_path = DEFAULT_RUN_PATH
+
+AUTO_MODE_ENABLED = st.session_state.control_mode == "Auto"
+
+
 # ---------- Header ----------
 left, right = st.columns([4, 1.4])
 with left:
     st.markdown(
         """
-        <div class='hero-card'>
-            <div style='letter-spacing:4px;color:#facc15;font-size:0.78rem;font-weight:700;'>DEMO PLATFORM</div>
-            <div style='font-size:2.2rem;font-weight:800;margin-top:0.35rem;'>Quadruped Robot Control UI</div>
+            <div class='hero-card'>
+            <div style='letter-spacing:4px;color:#facc15;font-size:0.78rem;font-weight:700;'>SPOTMINI LOCAL UI</div>
+            <div style='font-size:2.2rem;font-weight:800;margin-top:0.35rem;'>SpotMini Dashboard</div>
             <div class='screen-subtitle' style='margin-top:0.8rem;max-width:900px;'>
-                A browser-based demo inspired by your mockups. This Python version is built in Streamlit and keeps the same overall sections: control, missions, live camera, diagnostics, mission planning, and notifications.
+                A local control dashboard for the SpotMini project. This Streamlit version keeps the same core sections from your mockup: control, missions, live camera, diagnostics, mission planning, and notifications.
             </div>
         </div>
         """,
@@ -203,8 +395,8 @@ with right:
     st.markdown(
         """
         <div class='hero-card' style='text-align:center;padding-top:1.1rem;padding-bottom:1.1rem;'>
-            <div class='tiny'>Built with</div>
-            <div style='font-size:1.5rem;font-weight:800;margin-top:0.25rem;'>Python + Streamlit</div>
+            <div class='tiny'>Launch Mode</div>
+            <div style='font-size:1.5rem;font-weight:800;margin-top:0.25rem;'>Local Dashboard</div>
         </div>
         """,
         unsafe_allow_html=True,
@@ -230,7 +422,7 @@ with col1:
             f"""
             <div class='robot-banner'>
                 <div style='letter-spacing:3px;color:#a3e635;font-size:0.76rem;font-weight:700;'>ROBOT ONLINE</div>
-                <div style='font-size:1.55rem;font-weight:800;margin-top:0.4rem;'>Quadruped Robo-1</div>
+                <div style='font-size:1.55rem;font-weight:800;margin-top:0.4rem;'>SpotMini Simulator</div>
                 <div class='screen-subtitle' style='margin-top:0.35rem;'>Mode: {st.session_state.mode} · Last action: {st.session_state.last_action}</div>
             </div>
             """,
@@ -243,6 +435,11 @@ with col1:
     st.markdown(f"<div class='metric'><span>Connection</span><span class='good'>{st.session_state.connection}</span></div>", unsafe_allow_html=True)
     st.markdown(f"<div class='metric'><span>Battery</span><span class='warn'>{st.session_state.battery}%</span></div>", unsafe_allow_html=True)
     st.markdown(f"<div class='metric'><span>System Temp</span><span class='neutral'>{st.session_state.system_temp}°C</span></div>", unsafe_allow_html=True)
+    control_mode_class = "good" if AUTO_MODE_ENABLED else "warn"
+    st.markdown(
+        f"<div class='metric'><span>Control Mode</span><span class='{control_mode_class}'>{st.session_state.control_mode}</span></div>",
+        unsafe_allow_html=True,
+    )
 
     st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
     selected_mode = st.selectbox("Movement Mode", ["Trot", "Walk", "Standby", "Inspect"], index=["Trot", "Walk", "Standby", "Inspect"].index(st.session_state.mode), key="mode_select")
@@ -250,6 +447,11 @@ with col1:
         st.session_state.mode = selected_mode
         st.session_state.last_action = f"Switched mode to {selected_mode}"
         add_notification("Mode Updated", f"Robot changed to {selected_mode} mode.", "lime")
+
+    toggle_label = "Switch To Manual" if AUTO_MODE_ENABLED else "Switch To Auto"
+    if st.button(toggle_label, use_container_width=True):
+        set_control_mode("Manual" if AUTO_MODE_ENABLED else "Auto")
+        st.rerun()
 
     b1, b2 = st.columns(2)
     with b1:
@@ -265,18 +467,19 @@ with col1:
 
     b3, b4 = st.columns(2)
     with b3:
-        if st.button("Start Patrol", use_container_width=True):
+        if st.button("Start Patrol", use_container_width=True, disabled=not AUTO_MODE_ENABLED):
             st.session_state.mission_status = "Running"
             st.session_state.selected_mission = "Patrol Route"
             st.session_state.last_action = "Patrol started"
             add_notification("Mission Started", "Patrol Route is now running.", "lime")
     with b4:
-        if st.button("Return Home", use_container_width=True):
+        if st.button("Return Home", use_container_width=True, disabled=not AUTO_MODE_ENABLED):
             st.session_state.mission_status = "Returning"
             st.session_state.last_action = "Robot returning to dock"
             add_notification("Return Home", "Robot is navigating back to dock.", "yellow")
 
-    st.markdown("<div class='bottom-nav'><div class='tiny'>Quick controls active · Demo responsive</div></div>", unsafe_allow_html=True)
+    control_hint = "Auto missions enabled" if AUTO_MODE_ENABLED else "Manual movement enabled · auto missions locked"
+    st.markdown(f"<div class='bottom-nav'><div class='tiny'>{control_hint}</div></div>", unsafe_allow_html=True)
     st.markdown("</div>", unsafe_allow_html=True)
 
 with col2:
@@ -290,7 +493,7 @@ with col2:
     missions = ["Patrol Route", "Inspect Site", "Delivery Run", "Perimeter Scan"]
     for mission in missions:
         is_selected = st.session_state.selected_mission == mission
-        if st.button(("● " if is_selected else "○ ") + mission, use_container_width=True, key=f"mission_{mission}"):
+        if st.button(("● " if is_selected else "○ ") + mission, use_container_width=True, key=f"mission_{mission}", disabled=not AUTO_MODE_ENABLED):
             mission_select(mission)
 
     st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
@@ -305,42 +508,107 @@ with col2:
 
     n1, n2 = st.columns(2)
     with n1:
-        if st.button("Next Waypoint", use_container_width=True):
+        if st.button("Next Waypoint", use_container_width=True, disabled=not AUTO_MODE_ENABLED):
             st.session_state.waypoint_idx = (st.session_state.waypoint_idx + 1) % len(waypoints)
             st.session_state.last_action = f"Moved to {waypoints[st.session_state.waypoint_idx]}"
             add_notification("Waypoint Updated", st.session_state.last_action + ".", "lime")
     with n2:
-        if st.button("Pause Mission", use_container_width=True):
+        if st.button("Pause Mission", use_container_width=True, disabled=not AUTO_MODE_ENABLED):
             st.session_state.mission_status = "Paused"
             st.session_state.last_action = "Mission paused"
             add_notification("Mission Paused", "Awaiting operator input.", "yellow")
 
-    st.markdown("<div class='bottom-nav'><div class='tiny'>Preset routes · Waypoint navigation</div></div>", unsafe_allow_html=True)
+    mission_hint = "Preset routes · Waypoint navigation" if AUTO_MODE_ENABLED else "Mission routing disabled in manual mode"
+    st.markdown(f"<div class='bottom-nav'><div class='tiny'>{mission_hint}</div></div>", unsafe_allow_html=True)
     st.markdown("</div>", unsafe_allow_html=True)
 
 with col3:
     top_l, top_r = st.columns([4, 1])
     with top_l:
         st.markdown("<div class='screen-title'>Live Camera</div>", unsafe_allow_html=True)
-        st.markdown("<div class='screen-subtitle'>Warehouse feed • Recording ready</div>", unsafe_allow_html=True)
+        st.markdown("<div class='screen-subtitle'>ML body camera • PyBullet live feed</div>", unsafe_allow_html=True)
     with top_r:
         st.markdown("<div style='height:12px'></div><div class='badge'>Camera</div>", unsafe_allow_html=True)
 
-    st.markdown(
-        f"""
-        <div class='camera-box'>
-            {"● REC  LIVE FEED SIMULATION" if st.session_state.recording else "LIVE FEED SIMULATION"}
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
+    if AVAILABLE_RUNS:
+        st.selectbox(
+            "ML Run",
+            options=[run["path"] for run in AVAILABLE_RUNS],
+            format_func=lambda path: next((run["label"] for run in AVAILABLE_RUNS if run["path"] == path), path),
+            key="ml_run_path",
+        )
+    else:
+        st.caption("No playable ML runs found yet. A valid run needs both a saved model and VecNormalize stats.")
+
+    @st.fragment(run_every=1.0)
+    def live_camera_fragment():
+        status = read_status()
+        running = worker_is_running()
+        frame_available = FRAME_PATH.exists()
+
+        if frame_available:
+            st.image(str(FRAME_PATH), use_container_width=True)
+        else:
+            render_camera_placeholder()
+
+        c1, c2 = st.columns(2)
+        with c1:
+            if st.button("Start ML Feed", use_container_width=True, disabled=not AVAILABLE_RUNS):
+                started = start_ml_camera_worker(st.session_state.ml_run_path)
+                if started:
+                    st.session_state.last_action = "Started ML body camera feed"
+                    add_notification("ML Camera", "Live body camera feed started.", "lime")
+                else:
+                    add_notification("ML Camera", "Camera feed is already running.", "yellow")
+                st.rerun()
+        with c2:
+            if st.button("Stop ML Feed", use_container_width=True, disabled=not running):
+                stopped = stop_ml_camera_worker()
+                if stopped:
+                    st.session_state.last_action = "Stopped ML body camera feed"
+                    add_notification("ML Camera", "Live body camera feed stopped.", "yellow")
+                st.rerun()
+
+        run_name = status.get("run_name", "Unavailable")
+        feed_state = status.get("state", "idle")
+        feed_speed = status.get("forward_speed")
+        status_text = "Running" if running else feed_state.title()
+        signal_text = "Live" if running and frame_available else "Idle"
+
+        st.markdown(
+            f"<div class='metric'><span>Feed State</span><span class='neutral'>{status_text}</span></div>",
+            unsafe_allow_html=True,
+        )
+        st.markdown(
+            f"<div class='metric'><span>Active Run</span><span class='good'>{run_name}</span></div>",
+            unsafe_allow_html=True,
+        )
+        st.markdown(
+            f"<div class='metric'><span>Signal</span><span class='good'>{signal_text}</span></div>",
+            unsafe_allow_html=True,
+        )
+        speed_value = f"{float(feed_speed):0.2f} m/s" if feed_speed is not None else "Awaiting data"
+        st.markdown(
+            f"<div class='metric'><span>Forward Speed</span><span class='neutral'>{speed_value}</span></div>",
+            unsafe_allow_html=True,
+        )
+        st.caption(f"Worker Python: `{discover_worker_python()}`")
+        if status.get("vecnormalize_loaded") is False and status.get("vecnormalize_error"):
+            st.caption("Normalization fallback active: using raw environment because saved VecNormalize stats did not load cleanly.")
+
+        if status.get("state") == "error":
+            st.error(status.get("error", "ML camera worker failed."))
+            log_tail = read_log_tail()
+            if log_tail:
+                st.code(log_tail, language="text")
+
+    live_camera_fragment()
 
     c1, c2 = st.columns(2)
     with c1:
-        if st.button("Start Recording" if not st.session_state.recording else "Stop Recording", use_container_width=True):
-            st.session_state.recording = not st.session_state.recording
-            st.session_state.last_action = "Recording started" if st.session_state.recording else "Recording stopped"
-            add_notification("Camera", st.session_state.last_action + ".", "red" if st.session_state.recording else "yellow")
+        if st.button("Snapshot Marker", use_container_width=True):
+            st.session_state.last_action = "Snapshot marker dropped"
+            add_notification("Camera", "Snapshot marker saved for the live feed.", "lime")
     with c2:
         if st.button("Zoom View", use_container_width=True):
             st.session_state.zoom = not st.session_state.zoom
@@ -349,9 +617,8 @@ with col3:
 
     st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
     st.markdown(f"<div class='metric'><span>Lens Mode</span><span class='neutral'>{'Zoomed' if st.session_state.zoom else 'Standard'}</span></div>", unsafe_allow_html=True)
-    st.markdown("<div class='metric'><span>Stabilization</span><span class='good'>Enabled</span></div>", unsafe_allow_html=True)
-    st.markdown("<div class='metric'><span>Signal</span><span class='good'>1080p · Low Latency</span></div>", unsafe_allow_html=True)
-    st.markdown("<div class='bottom-nav'><div class='tiny'>Vision system · Remote operator view</div></div>", unsafe_allow_html=True)
+    st.markdown("<div class='metric'><span>Stabilization</span><span class='good'>Model Camera Ready</span></div>", unsafe_allow_html=True)
+    st.markdown("<div class='bottom-nav'><div class='tiny'>Vision system · ML playback body camera</div></div>", unsafe_allow_html=True)
     st.markdown("</div>", unsafe_allow_html=True)
 
 st.markdown("<div style='height:18px'></div>", unsafe_allow_html=True)
@@ -372,7 +639,7 @@ with b1:
         if st.button("Optimize Route", use_container_width=True):
             add_notification("Planner", "Route optimized for shortest safe path.", "yellow")
     with p3:
-        if st.button("Deploy Mission", use_container_width=True):
+        if st.button("Deploy Mission", use_container_width=True, disabled=not AUTO_MODE_ENABLED):
             st.session_state.mission_status = "Running"
             add_notification("Deployment", f"{st.session_state.selected_mission} deployed from planner.", "lime")
     st.markdown("</div>", unsafe_allow_html=True)

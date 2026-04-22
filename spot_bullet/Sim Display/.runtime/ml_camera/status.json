@@ -1,0 +1,19 @@
+{
+  "state": "running",
+  "running": true,
+  "run_name": "rough_walk_height_residual_v3",
+  "run_dir": "/Users/Diviprakash/Documents/New project/spot_mini_mini/spot_bullet/training_runs/rough_walk_height_residual_v3",
+  "model_path": "/Users/Diviprakash/Documents/New project/spot_mini_mini/spot_bullet/training_runs/rough_walk_height_residual_v3/best_model/best_model.zip",
+  "terrain_profile": "rough",
+  "gait_mode": "four_phase",
+  "vecnormalize_loaded": false,
+  "vecnormalize_error": null,
+  "episode": 1044,
+  "episode_step": 13,
+  "episode_reward": 4.521745404228568,
+  "forward_speed": 0.523153692483902,
+  "frame_width": 640,
+  "frame_height": 360,
+  "last_frame_time": 1776800331.202129,
+  "timestamp": 1776800331.202137
+}
