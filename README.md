@@ -10,28 +10,77 @@ We will be running all these files on our terminal so access your terminal and n
 
 From spot_bullet, please find the src folder, and please find spot_tester.py.
 
-Path = ________/spot_mini_mini/spot_bullet
+Path = ________/spot_mini_mini
 
 
 
 ## FOR WINDOWS USERS:
 
-py install 3.10
+For Windows, I have had the most success using Miniconda or Anaconda instead of a plain `venv`.
 
-### 1. Create environment
-py -3.10 -m venv spotmini-env
+https://www.anaconda.com/docs/getting-started/miniconda/install/overview
 
-### 2. Activate
-spotmini-env\Scripts\activate
+### 1. Install Python 3.10
+You can download the latest, but while running the next bit of code we will be creating an environment using python 3.10
+Make sure Python 3.10 is available through your Conda installation.
 
-### 3. Upgrade pip
-pip install --upgrade pip setuptools wheel
+https://www.python.org/downloads/
 
-### 4. Install dependencies
-pip install -r requirements.txt
+### 2. Open the correct terminal
+Open `Anaconda Prompt` or `Miniconda Prompt`.
 
-### 5. Run
-python src\spot_tester.py
+### 3. Go to the project folder
+```bat
+cd C:\Users\YOUR_USERNAME\Downloads\spot_mini_mini
+```
+
+### 4. Create the environment
+```bat
+conda create -n spotmini python=3.10 -y
+```
+
+### 5. Activate the environment
+```bat
+conda activate spotmini
+```
+
+### 6. Install the core dependencies with conda-forge
+These packages were more reliable through Conda on Windows than through pip.
+
+```bat
+conda install -c conda-forge numpy scipy matplotlib opencv pybullet -y
+```
+
+### 7. Upgrade pip tools
+```bat
+python -m pip install --upgrade pip wheel "setuptools<82"
+```
+
+### 8. Install the remaining Python dependencies
+```bat
+python -m pip install gym==0.26.2 gymnasium==0.29.1 stable-baselines3==2.3.2 filterpy==1.4.5
+```
+
+### 9. Verify PyBullet is working
+```bat
+python -c "import pybullet; print('pybullet works')"
+```
+
+### 10. Start the tester
+Run this from the main project folder:
+
+```bat
+python spot_bullet\src\spot_tester.py
+```
+
+### 11. Current known stopping point
+If your environment setup is successful, the next issue you may see is:
+
+```bat
+ImportError: cannot import name 'IndividualLegGUI' from 'spotmicro.util.gui'
+```
+
+That means the environment setup is complete enough to launch `spot_tester.py`, and the remaining issue is a project file mismatch rather than a missing dependency.
 
 
 
@@ -59,52 +108,52 @@ python src/spot_tester.py
 
 ## FOR MAC(APPLE Silicon) USERS:
 
-### 1. Create environment
+For Apple Silicon, we also had the most success using Conda instead of a plain `venv`.
+
+### 1. Install Python 3.10
+Make sure Python 3.10 is available through your Conda installation.
+
+### 2. Open the correct terminal
+Open your normal macOS Terminal with Conda initialized.
+
+### 3. Go to the project folder
+```bash
+cd /path/to/spot_mini_mini
+```
+
+### 4. Create the environment
+```bash
 conda create -n spotmini python=3.10 -y
+```
 
-### 2. Activate
+### 5. Activate the environment
+```bash
 conda activate spotmini
+```
 
-### 3. Install core dependencies
+### 6. Install the core dependencies with conda-forge
+These packages were more reliable through Conda than through pip on Apple Silicon.
+
+```bash
 conda install -c conda-forge numpy scipy matplotlib opencv pybullet -y
+```
 
-### 4. Upgrade pip
-pip install --upgrade pip wheel
+### 7. Upgrade pip tools
+```bash
+python -m pip install --upgrade pip wheel "setuptools<82"
+```
 
-### 5. Pin setuptools because pkg_resources was removed in setuptools 82+
-pip install "setuptools<82"
+### 8. Install the remaining Python dependencies
+```bash
+python -m pip install gym==0.26.2 gymnasium==0.29.1 stable-baselines3==2.3.2 filterpy==1.4.5
+```
 
-### 6. Install secondary dependencies
-pip install gym==0.26.2 gymnasium==0.29.1 stable-baselines3==2.3.2 filterpy==1.4.5
+### 9. Start the tester
+Run this from the main project folder:
 
-### 7. Install remaining dependencies
-pip install -r requirements.txt
-
-### 8. Run
-python spot_tester.py
-
-
-
-
-
-# Important note for the newer commands
-
-The older `spot_tester.py` commands above are run from inside:
-
-Path = ________/spot_mini_mini/spot_bullet/src
-
-The newer dashboard, manual PyBullet app, training, playback, and comparison commands below should be run from the main project folder:
-
-Path = ________/spot_mini_mini
-
-If you are in the main project folder and need to install the requirements file, use:
-
-python -m pip install -r spot_bullet/src/requirements.txt
-
-If you are already inside spot_bullet/src, use:
-
-pip install -r requirements.txt
-
+```bash
+python spot_bullet/src/spot_tester.py
+```
 
 
 
@@ -129,13 +178,18 @@ Before running the manual app, install the app dependencies in the same environm
 
 python -m pip install streamlit pywebview
 
-## Run on Mac:
 
-python3 "spot_bullet/Sim Display/launch_manual_app.py"
 
 ## Run on Windows:
 
-python "spot_bullet\Sim Display\launch_manual_app.py"
+### python "spot_bullet\Sim Display\launch_manual_app.py"
+
+
+## Run on Mac:
+
+### python3 "spot_bullet/Sim Display/launch_manual_app.py"
+
+
 
 ## What to click in the app:
 
@@ -150,7 +204,6 @@ For Test PPO Model, choose the trained run from the dropdown, choose best or fin
 If the worker is still using an older version, click Force Restart Manual Worker.
 
 Manual trot currently uses fixed tuning values while we are still improving the gait. The current values are forward step 0.050, backward step 0.040, turn assist 0.010, turn rate 0.90, strafe step 0.030, strafe angle 0.80, step velocity 0.54, and curve height 0.040.
-
 
 
 
@@ -170,6 +223,38 @@ python3 "spot_bullet/Sim Display/launch_dashboard.py"
 python "spot_bullet\Sim Display\launch_dashboard.py"
 
 If pywebview is installed correctly, the dashboard opens in a local desktop window. If pywebview is missing, the normal dashboard can open in a browser.
+
+
+
+
+
+# Important note for the newer commands
+
+The updated Windows and Apple Silicon `spot_tester.py` commands above are run from the main project folder:
+
+Path = ________/spot_mini_mini
+
+If you prefer to run `spot_tester.py` from inside `spot_bullet/src`, use:
+
+```bash
+python spot_tester.py
+```
+
+The newer dashboard, manual PyBullet app, training, playback, and comparison commands below should be run from the main project folder:
+
+Path = ________/spot_mini_mini
+
+If you are in the main project folder and need to install the requirements file, use:
+
+```bash
+python -m pip install -r spot_bullet/src/requirements.txt
+```
+
+If you are already inside spot_bullet/src, use:
+
+```bash
+pip install -r requirements.txt
+```
 
 
 
