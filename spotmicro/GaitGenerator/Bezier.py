@@ -1,3 +1,4 @@
+import math
 import numpy as np
 from spotmicro.Kinematics.LieAlgebra import TransToRp
 import copy
@@ -42,6 +43,13 @@ class BezierGait():
 
         # Store all leg phases
         self.Phases = self.dSref
+        self.swing_clearance_scales = {
+            "FL": 1.0,
+            "FR": 1.0,
+            "BL": 1.0,
+            "BR": 1.0,
+        }
+        self.swing_clearance_scale = 1.0
 
     def reset(self):
         """Resets the parameters of the Bezier Gait Generator
@@ -193,9 +201,9 @@ class BezierGait():
            :param k: Bezier point number
            :returns: Binomial solution
         """
-        return np.math.factorial(self.NumControlPoints) / (
-            np.math.factorial(k) *
-            np.math.factorial(self.NumControlPoints - k))
+        return math.factorial(self.NumControlPoints) / (
+            math.factorial(k) *
+            math.factorial(self.NumControlPoints - k))
 
     def BezierSwing(self, phase, L, LateralFraction, clearance_height=0.04):
         """Calculates the step coordinates for the Bezier (swing) period
@@ -347,11 +355,15 @@ class BezierGait():
         phi_arc = self.YawCircle(T_bf, index)
 
         # Get Foot Coordinates for Forward Motion
+        scaled_clearance_height = clearance_height * float(
+            self.swing_clearance_scales.get(key, 1.0)
+        )
+
         X_delta_lin, Y_delta_lin, Z_delta_lin = self.BezierSwing(
-            phase, L, LateralFraction, clearance_height)
+            phase, L, LateralFraction, scaled_clearance_height)
 
         X_delta_rot, Y_delta_rot, Z_delta_rot = self.BezierSwing(
-            phase, YawRate, phi_arc, clearance_height)
+            phase, YawRate, phi_arc, scaled_clearance_height)
 
         coord = np.array([
             X_delta_lin + X_delta_rot, Y_delta_lin + Y_delta_rot,
@@ -433,6 +445,28 @@ class BezierGait():
             return self.SwingStep(phase, L, LateralFraction, YawRate,
                                   clearance_height, T_bf, key, index)
 
+    def _representative_step_length(self, value):
+        if isinstance(value, dict):
+            if not value:
+                return 0.0
+            return max(abs(float(item)) for item in value.values())
+        if np.ndim(value) > 0:
+            value_array = np.asarray(value, dtype=float).reshape(-1)
+            if value_array.size == 0:
+                return 0.0
+            return float(np.max(np.abs(value_array)))
+        return float(value)
+
+    def _resolve_leg_step_length(self, value, leg_name, leg_index):
+        if isinstance(value, dict):
+            return float(value.get(leg_name, 0.0))
+        if np.ndim(value) > 0:
+            value_array = np.asarray(value, dtype=float).reshape(-1)
+            if leg_index < value_array.size:
+                return float(value_array[leg_index])
+            return 0.0
+        return float(value)
+
     def GenerateTrajectory(self,
                            L,
                            LateralFraction,
@@ -459,8 +493,9 @@ class BezierGait():
         """
         # First, get Tstance from desired speed and stride length
         # NOTE: L is HALF of stride length
+        representative_step_length = self._representative_step_length(L)
         if vel != 0.0:
-            Tstance = 2.0 * abs(L) / abs(vel)
+            Tstance = 2.0 * abs(representative_step_length) / abs(vel)
         else:
             Tstance = 0.0
             L = 0.0
@@ -506,7 +541,8 @@ class BezierGait():
                 self.dSref[i] = 0.0
             _, p_bf = TransToRp(Tbf_in)
             if Tstance > 0.0:
-                step_coord = self.GetFootStep(L, LateralFraction, YawRate,
+                leg_step_length = self._resolve_leg_step_length(L, key, i)
+                step_coord = self.GetFootStep(leg_step_length, LateralFraction, YawRate,
                                               clearance_height,
                                               penetration_depth, Tstance, p_bf,
                                               i, key)

@@ -15,6 +15,7 @@ os.environ["MKL_NUM_THREADS"] = "1"
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.abspath(os.path.join(CURRENT_DIR, "..", ".."))
 CACHE_DIR = os.path.join(PROJECT_ROOT, ".cache")
+TRAINING_ROOT_NAMES = ("training runs", "training_runs")
 
 os.makedirs(os.path.join(CACHE_DIR, "matplotlib"), exist_ok=True)
 os.makedirs(os.path.join(CACHE_DIR, "fontconfig"), exist_ok=True)
@@ -68,6 +69,25 @@ except ModuleNotFoundError as exc:
     dependency_error(exc)
 
 
+def _spotmini_compat_bit_generator_ctor(bit_generator_name="MT19937"):
+    """Pickle-safe compatibility wrapper for NumPy bit generator restoration."""
+    import numpy.random._pickle as numpy_pickle
+
+    original_ctor = getattr(
+        _spotmini_compat_bit_generator_ctor,
+        "_spotmini_original_ctor",
+        None,
+    )
+    if original_ctor is None:
+        original_ctor = getattr(numpy_pickle, "__bit_generator_ctor", None)
+        _spotmini_compat_bit_generator_ctor._spotmini_original_ctor = original_ctor
+    if original_ctor is None:
+        raise AttributeError("NumPy pickle constructor is unavailable")
+    if isinstance(bit_generator_name, type):
+        bit_generator_name = bit_generator_name.__name__
+    return original_ctor(bit_generator_name)
+
+
 def patch_numpy_bit_generator_pickle() -> None:
     """Allow loading VecNormalize pickles created under newer NumPy builds."""
     try:
@@ -76,16 +96,12 @@ def patch_numpy_bit_generator_pickle() -> None:
         return
 
     original_ctor = getattr(numpy_pickle, "__bit_generator_ctor", None)
+    compat_ctor = _spotmini_compat_bit_generator_ctor
     if original_ctor is None or getattr(original_ctor, "_spotmini_patched", False):
         return
-
-    def compat_bit_generator_ctor(bit_generator_name="MT19937"):
-        if isinstance(bit_generator_name, type):
-            bit_generator_name = bit_generator_name.__name__
-        return original_ctor(bit_generator_name)
-
-    compat_bit_generator_ctor._spotmini_patched = True
-    numpy_pickle.__bit_generator_ctor = compat_bit_generator_ctor
+    compat_ctor._spotmini_original_ctor = original_ctor
+    compat_ctor._spotmini_patched = True
+    numpy_pickle.__bit_generator_ctor = compat_ctor
 
 
 def patch_numpy_module_aliases() -> None:
@@ -124,7 +140,7 @@ def parse_args():
     parser.add_argument(
         "--run-dir",
         default=None,
-        help="Training run directory. Defaults to the newest folder in spot_bullet/training_runs.",
+        help="Training run directory. Defaults to the newest folder in spot_bullet/training runs or spot_bullet/training_runs.",
     )
     parser.add_argument(
         "--model",
@@ -252,6 +268,19 @@ def parse_args():
         help="Let the rough-terrain camera pitch/roll with the body instead of stabilizing to the horizon.",
     )
     parser.add_argument(
+        "--enable-imu-yaw",
+        dest="enable_imu_yaw",
+        action="store_true",
+        help="Enable yaw-aware IMU features and yaw stabilization when constructing the playback environment.",
+    )
+    parser.add_argument(
+        "--disable-imu-yaw",
+        dest="enable_imu_yaw",
+        action="store_false",
+        help="Disable yaw-aware IMU features and yaw stabilization when constructing the playback environment.",
+    )
+    parser.set_defaults(enable_imu_yaw=None)
+    parser.add_argument(
         "--camera-pitch-offset-deg",
         type=float,
         default=None,
@@ -277,28 +306,53 @@ def parse_args():
     return parser.parse_args()
 
 
-def get_training_root() -> Path:
-    return Path(PROJECT_ROOT) / "spot_bullet" / "training_runs"
+def training_root_candidates() -> list[Path]:
+    spot_bullet_root = Path(PROJECT_ROOT) / "spot_bullet"
+    return [spot_bullet_root / root_name for root_name in TRAINING_ROOT_NAMES]
+
+
+def existing_training_roots() -> list[Path]:
+    return [root for root in training_root_candidates() if root.exists()]
+
+
+def resolve_run_dir_hint(run_dir_arg: str | None) -> Path | None:
+    if not run_dir_arg:
+        return None
+
+    run_dir = Path(run_dir_arg).expanduser()
+    if run_dir.exists():
+        return run_dir.resolve()
+
+    for root in existing_training_roots():
+        candidate = root / run_dir.name
+        if candidate.exists():
+            return candidate.resolve()
+
+    return run_dir.resolve()
 
 
 def resolve_run_dir(run_dir_arg: str | None) -> Path:
     if run_dir_arg:
-        run_dir = Path(run_dir_arg).expanduser().resolve()
+        run_dir = resolve_run_dir_hint(run_dir_arg)
         if not run_dir.exists():
             raise SystemExit(f"Run directory not found: {run_dir}")
         return run_dir
 
-    training_root = get_training_root()
-    if not training_root.exists():
-        raise SystemExit(f"No training_runs directory found at: {training_root}")
-
-    run_dirs = sorted(
-        [path for path in training_root.iterdir() if path.is_dir()],
-        key=lambda path: path.stat().st_mtime,
-        reverse=True,
-    )
+    run_dirs = []
+    seen: set[Path] = set()
+    for training_root in existing_training_roots():
+        for path in training_root.iterdir():
+            if not path.is_dir():
+                continue
+            resolved = path.resolve()
+            if resolved in seen:
+                continue
+            seen.add(resolved)
+            run_dirs.append(resolved)
+    run_dirs = sorted(run_dirs, key=lambda path: path.stat().st_mtime, reverse=True)
     if not run_dirs:
-        raise SystemExit(f"No run directories found in: {training_root}")
+        searched = ", ".join(str(path) for path in training_root_candidates())
+        raise SystemExit(f"No run directories found in: {searched}")
     return run_dirs[0]
 
 
@@ -317,12 +371,72 @@ def resolve_model_path(run_dir: Path, model_kind: str, checkpoint_path: str | No
     return path
 
 
+def load_ppo_model(model_path: Path, env, *, context: str = "playback"):
+    try:
+        return PPO.load(
+            str(model_path),
+            env=env,
+            device="auto",
+            custom_objects={
+                "observation_space": env.observation_space,
+                "action_space": env.action_space,
+            },
+        )
+    except RuntimeError as exc:
+        message = str(exc)
+        if "size mismatch" in message:
+            raise SystemExit(
+                f"Model/environment observation shape mismatch during {context}.\n"
+                f"Model: {model_path}\n"
+                "This usually means the checkpoint was trained with different environment "
+                "features than the current run config or command-line overrides.\n"
+                "Try removing overrides such as --enable-imu-yaw, or retrain the model "
+                "with the same flags you want to use for playback."
+            ) from exc
+        raise
+
+
 def load_run_config(run_dir: Path) -> dict:
     config_path = run_dir / "run_config.json"
     if not config_path.exists():
         return {}
     with open(config_path, "r", encoding="utf-8") as config_file:
         return json.load(config_file)
+
+
+def resolve_teacher_artifacts(run_config: dict) -> tuple[str | None, str | None]:
+    teacher_run_dir = resolve_run_dir_hint(run_config.get("teacher_run_dir"))
+    teacher_model_path = run_config.get("teacher_model_path")
+    teacher_vecnormalize_path = run_config.get("teacher_vecnormalize_path")
+
+    if teacher_model_path is not None:
+        teacher_model_candidate = Path(teacher_model_path).expanduser()
+        if teacher_model_candidate.exists():
+            teacher_model_path = str(teacher_model_candidate.resolve())
+        elif teacher_run_dir is not None:
+            try:
+                teacher_model_path = str(
+                    resolve_model_path(
+                        teacher_run_dir,
+                        run_config.get("teacher_model", "best"),
+                        None,
+                    )
+                )
+            except SystemExit:
+                teacher_model_path = None
+
+    if teacher_vecnormalize_path is not None:
+        teacher_vec_candidate = Path(teacher_vecnormalize_path).expanduser()
+        if teacher_vec_candidate.exists():
+            teacher_vecnormalize_path = str(teacher_vec_candidate.resolve())
+        elif teacher_run_dir is not None:
+            candidate = teacher_run_dir / "vecnormalize" / "vecnormalize.pkl"
+            teacher_vecnormalize_path = str(candidate) if candidate.exists() else None
+    elif teacher_run_dir is not None:
+        candidate = teacher_run_dir / "vecnormalize" / "vecnormalize.pkl"
+        teacher_vecnormalize_path = str(candidate) if candidate.exists() else None
+
+    return teacher_model_path, teacher_vecnormalize_path
 
 
 def make_env(args, run_config):
@@ -418,6 +532,9 @@ def make_env(args, run_config):
                 "camera_pitch_offset_deg",
                 -10.0 if rough_variant != "foothold_aware_v1" else 0.0,
             )
+        enable_imu_yaw = args.enable_imu_yaw
+        if enable_imu_yaw is None:
+            enable_imu_yaw = bool(run_config.get("enable_imu_yaw", False))
         use_native_bullet_gui = bool(
             args.render and (args.bullet_gui or sys.platform != "darwin")
         )
@@ -447,6 +564,7 @@ def make_env(args, run_config):
             body_pitch_bias_deg=body_pitch_bias_deg,
             auto_yaw_gain=auto_yaw_gain,
             gait_geometry_profile=gait_geometry,
+            enable_imu_yaw=enable_imu_yaw,
             gui_safe_mode=False if (use_native_bullet_gui and args.unsafe_gui) else None,
             follow_gui_camera=args.follow_camera if use_native_bullet_gui else None,
         )
@@ -462,9 +580,10 @@ def make_env(args, run_config):
                 camera_pitch_offset_deg=camera_pitch_offset_deg,
             )
         if env_class is SpotMLRoughTeacherJointResidualEnv:
+            teacher_model_path, teacher_vecnormalize_path = resolve_teacher_artifacts(run_config)
             env_kwargs.update(
-                teacher_model_path=run_config.get("teacher_model_path"),
-                teacher_vecnormalize_path=run_config.get("teacher_vecnormalize_path"),
+                teacher_model_path=teacher_model_path,
+                teacher_vecnormalize_path=teacher_vecnormalize_path,
             )
         env = env_class(**env_kwargs)
         env.reset(seed=args.seed)
@@ -508,6 +627,10 @@ def main():
     effective_max_steps = args.max_steps if args.max_steps is not None else effective_episode_steps
     print(f"Episode horizon: {effective_episode_steps}")
     print(f"Body pitch bias (deg): {effective_body_pitch_bias_deg}")
+    print(
+        "IMU yaw stabilization: "
+        f"{args.enable_imu_yaw if args.enable_imu_yaw is not None else run_config.get('enable_imu_yaw', False)}"
+    )
     print(f"Playback max steps: {effective_max_steps}")
     if (
         str(run_config.get("rough_env_variant", "")).startswith("foothold_aware")
@@ -549,15 +672,7 @@ def main():
             "Continuing with the raw environment instead."
         )
 
-    model = PPO.load(
-        str(model_path),
-        env=env,
-        device="auto",
-        custom_objects={
-            "observation_space": env.observation_space,
-            "action_space": env.action_space,
-        },
-    )
+    model = load_ppo_model(model_path, env, context="playback")
 
     raw_env = unwrap_env(env)
     live_preview_enabled = False

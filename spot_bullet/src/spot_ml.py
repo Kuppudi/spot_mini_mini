@@ -17,17 +17,20 @@ from imu_controller import IMUController
 
 class SpotMLWalkEnv(gym.Env):
     metadata = {"render_modes": ["human"]}
+    IMU_ORIENTATION_FEATURE_DIM = 4
 
     DEFAULT_WALK_TARGET_FORWARD_SPEED = 0.06
-    DEFAULT_WALK_BODY_HEIGHT_OFFSET = 0.01
-    DEFAULT_WALK_BODY_PITCH_BIAS_DEG = -1.8
+    DEFAULT_WALK_BODY_HEIGHT_OFFSET = 0.018
+    DEFAULT_WALK_BODY_PITCH_BIAS_DEG = -0.4
     DEFAULT_WALK_AUTO_YAW_GAIN = 0.55
     DEFAULT_WALK_GEOMETRY_PROFILE = "balanced"
     DEFAULT_ROUGH_WALK_TARGET_FORWARD_SPEED = 0.045
-    DEFAULT_ROUGH_WALK_BODY_HEIGHT_OFFSET = 0.0
-    DEFAULT_ROUGH_WALK_BODY_PITCH_BIAS_DEG = -2.6
+    DEFAULT_ROUGH_WALK_BODY_HEIGHT_OFFSET = 0.014
+    DEFAULT_ROUGH_WALK_BODY_PITCH_BIAS_DEG = -0.8
     DEFAULT_ROUGH_WALK_AUTO_YAW_GAIN = 0.65
     DEFAULT_ROUGH_WALK_GEOMETRY_PROFILE = "contact_stable"
+    DEFAULT_FRONT_SWING_CLEARANCE_SCALE = 1.0
+    DEFAULT_REAR_SWING_CLEARANCE_SCALE = 1.0
 
     def __init__(self,
                  render=False,
@@ -41,9 +44,15 @@ class SpotMLWalkEnv(gym.Env):
                  gait_mode="trot",
                  max_episode_steps=2000,
                  body_height_offset=None,
+                 body_roll_bias_deg=None,
                  body_pitch_bias_deg=None,
                  auto_yaw_gain=None,
                  gait_geometry_profile=None,
+                 enable_imu_yaw=False,
+                 allow_turning_commands=False,
+                 stabilization_profile=None,
+                 front_swing_clearance_scale=None,
+                 rear_swing_clearance_scale=None,
                  gui_safe_mode=None,
                  follow_gui_camera=None):
 
@@ -81,9 +90,26 @@ class SpotMLWalkEnv(gym.Env):
         self.target_forward_speed = target_forward_speed
         self.max_episode_steps = int(max_episode_steps)
         self.requested_body_height_offset = body_height_offset
+        self.requested_body_roll_bias_deg = body_roll_bias_deg
         self.requested_body_pitch_bias_deg = body_pitch_bias_deg
         self.requested_auto_yaw_gain = auto_yaw_gain
         self.requested_gait_geometry_profile = gait_geometry_profile
+        self.enable_imu_yaw = bool(enable_imu_yaw)
+        self.allow_turning_commands = bool(allow_turning_commands)
+        self.stabilization_profile = stabilization_profile
+        self.front_swing_clearance_scale = (
+            self.DEFAULT_FRONT_SWING_CLEARANCE_SCALE
+            if front_swing_clearance_scale is None
+            else float(front_swing_clearance_scale)
+        )
+        self.rear_swing_clearance_scale = (
+            self.DEFAULT_REAR_SWING_CLEARANCE_SCALE
+            if rear_swing_clearance_scale is None
+            else float(rear_swing_clearance_scale)
+        )
+        self.imu_orientation_feature_dim = (
+            self.IMU_ORIENTATION_FEATURE_DIM if self.enable_imu_yaw else 0
+        )
 
         self.spot_model = SpotModel()
         self.T_bf0 = copy.deepcopy(self.spot_model.WorldToFoot)
@@ -101,11 +127,16 @@ class SpotMLWalkEnv(gym.Env):
         self.nominal_base_height = None
         self.fall_penalty = 25.0
         self.body_height_offset = 0.0
+        self.body_roll_bias_deg = 0.0
         self.body_pitch_bias_deg = 0.0
         self.auto_yaw_gain = 0.0
         self.last_stabilized_yaw_rate = 0.0
         self.body_position = np.zeros(3, dtype=np.float32)
         self.body_orientation_bias = np.zeros(3, dtype=np.float32)
+        self.manual_curve_height = None
+        self.manual_curve_speed_scale = 1.0
+        self.manual_forward_left_step_gain = 1.0
+        self.manual_forward_right_step_gain = 1.0
         self.gait_geometry_profile = "default"
         self.footprint_scale_x = 1.0
         self.footprint_scale_y = 1.0
@@ -124,7 +155,7 @@ class SpotMLWalkEnv(gym.Env):
 
         self.action_space = self._make_action_space()
 
-        obs_dim = 16 + 4 + 4 + 1 + 8
+        obs_dim = 16 + 4 + 4 + 1 + 8 + self.imu_orientation_feature_dim
         self.observation_space = spaces.Box(
             low=-np.inf,
             high=np.inf,
@@ -179,8 +210,9 @@ class SpotMLWalkEnv(gym.Env):
             else:
                 high = np.array([0.06, 0.05, 0.05, 0.50], dtype=np.float32)
         else:
-            low = np.array([-0.08, -1.0, -1.2, 0.4], dtype=np.float32)
-            high = np.array([0.08, 1.0, 1.2, 1.4], dtype=np.float32)
+            lateral_limit = np.pi / 2.0 if self.allow_turning_commands else 1.0
+            low = np.array([-0.08, -lateral_limit, -1.2, 0.4], dtype=np.float32)
+            high = np.array([0.08, lateral_limit, 1.2, 1.4], dtype=np.float32)
         return spaces.Box(low=low, high=high, dtype=np.float32)
 
     def _get_four_phase_geometry_config(self, profile_name):
@@ -283,6 +315,10 @@ class SpotMLWalkEnv(gym.Env):
                     if self.requested_body_height_offset is None
                     else float(self.requested_body_height_offset)
                 )
+                self.body_roll_bias_deg = (
+                    0.0 if self.requested_body_roll_bias_deg is None
+                    else float(self.requested_body_roll_bias_deg)
+                )
                 self.body_pitch_bias_deg = (
                     self.DEFAULT_ROUGH_WALK_BODY_PITCH_BIAS_DEG
                     if self.requested_body_pitch_bias_deg is None
@@ -319,6 +355,10 @@ class SpotMLWalkEnv(gym.Env):
                     self.DEFAULT_WALK_BODY_HEIGHT_OFFSET
                     if self.requested_body_height_offset is None
                     else float(self.requested_body_height_offset)
+                )
+                self.body_roll_bias_deg = (
+                    0.0 if self.requested_body_roll_bias_deg is None
+                    else float(self.requested_body_roll_bias_deg)
                 )
                 self.body_pitch_bias_deg = (
                     self.DEFAULT_WALK_BODY_PITCH_BIAS_DEG
@@ -367,6 +407,10 @@ class SpotMLWalkEnv(gym.Env):
                 0.0 if self.requested_body_height_offset is None
                 else float(self.requested_body_height_offset)
             )
+            self.body_roll_bias_deg = (
+                0.0 if self.requested_body_roll_bias_deg is None
+                else float(self.requested_body_roll_bias_deg)
+            )
             self.body_pitch_bias_deg = (
                 0.0 if self.requested_body_pitch_bias_deg is None
                 else float(self.requested_body_pitch_bias_deg)
@@ -404,15 +448,119 @@ class SpotMLWalkEnv(gym.Env):
         # Positive body_height_offset should lower the body posture.
         self.body_position = np.array([0.0, 0.0, self.body_height_offset], dtype=np.float32)
         self.body_orientation_bias = np.array(
-            [0.0, np.deg2rad(self.body_pitch_bias_deg), 0.0],
+            [
+                np.deg2rad(self.body_roll_bias_deg),
+                np.deg2rad(self.body_pitch_bias_deg),
+                0.0,
+            ],
             dtype=np.float32,
         )
+        self._configure_imu_yaw_controller()
+        self._apply_stabilization_profile()
+        self._apply_swing_clearance_tuning()
+
+    def _apply_swing_clearance_tuning(self):
+        if not hasattr(self.bzg, "swing_clearance_scales"):
+            return
+        front_scale = float(np.clip(self.front_swing_clearance_scale, 0.75, 1.45))
+        rear_scale = float(np.clip(self.rear_swing_clearance_scale, 0.55, 1.15))
+        self.bzg.swing_clearance_scales.update(
+            {
+                "FL": front_scale,
+                "FR": front_scale,
+                "BL": rear_scale,
+                "BR": rear_scale,
+            }
+        )
+
+    def _apply_stabilization_profile(self):
+        if self.stabilization_profile != "manual":
+            return
+
+        # Manual testing includes mouse perturbations, so use quicker,
+        # stronger damping than the conservative training defaults.
+        if self.gait_mode == "four_phase":
+            self.imu_controller.Kp_roll *= 1.28
+            self.imu_controller.Kp_pitch *= 1.35
+            self.imu_controller.Kd_roll *= 1.55
+            self.imu_controller.Kd_pitch *= 1.60
+            self.imu_controller.alpha = max(self.imu_controller.alpha, 0.32)
+            self.imu_controller.Kp_pos_roll *= 1.45
+            self.imu_controller.Kp_pos_pitch *= 1.55
+            self.imu_controller.Kd_pos_roll *= 1.45
+            self.imu_controller.Kd_pos_pitch *= 1.55
+            self.imu_controller.max_corr = max(self.imu_controller.max_corr, 0.30)
+            self.imu_controller.max_pos_corr = max(self.imu_controller.max_pos_corr, 0.018)
+            self.imu_controller.deadband = min(self.imu_controller.deadband, 0.0035)
+        else:
+            self.imu_controller.Kp_roll = max(self.imu_controller.Kp_roll, 0.62)
+            self.imu_controller.Kp_pitch = max(self.imu_controller.Kp_pitch, 0.66)
+            self.imu_controller.Kd_roll = max(self.imu_controller.Kd_roll, 0.055)
+            self.imu_controller.Kd_pitch = max(self.imu_controller.Kd_pitch, 0.060)
+            self.imu_controller.alpha = max(self.imu_controller.alpha, 0.22)
+            self.imu_controller.Kp_pos_roll = max(self.imu_controller.Kp_pos_roll, 0.006)
+            self.imu_controller.Kp_pos_pitch = max(self.imu_controller.Kp_pos_pitch, 0.008)
+            self.imu_controller.Kd_pos_roll = max(self.imu_controller.Kd_pos_roll, 0.002)
+            self.imu_controller.Kd_pos_pitch = max(self.imu_controller.Kd_pos_pitch, 0.0025)
+            self.imu_controller.max_corr = max(self.imu_controller.max_corr, 0.26)
+            self.imu_controller.max_pos_corr = max(self.imu_controller.max_pos_corr, 0.016)
+            self.imu_controller.deadband = min(self.imu_controller.deadband, 0.004)
+
+        if self.enable_imu_yaw:
+            self.imu_controller.Kp_yaw *= 1.35
+            self.imu_controller.Kd_yaw *= 1.45
+            self.imu_controller.alpha_yaw = max(self.imu_controller.alpha_yaw, 0.20)
+            self.imu_controller.max_yaw_corr = max(self.imu_controller.max_yaw_corr, 0.10)
+            self.imu_controller.deadband_yaw = min(self.imu_controller.deadband_yaw, 0.006)
+
+    def _configure_imu_yaw_controller(self):
+        if not self.enable_imu_yaw:
+            self.imu_controller.Kp_yaw = 0.0
+            self.imu_controller.Kd_yaw = 0.0
+            self.imu_controller.alpha_yaw = self.imu_controller.alpha
+            self.imu_controller.max_yaw_corr = 0.0
+            self.imu_controller.deadband_yaw = self.imu_controller.deadband
+            return
+
+        if self.gait_mode == "four_phase":
+            if self.height_field:
+                self.imu_controller.Kp_yaw = 0.16
+                self.imu_controller.Kd_yaw = 0.035
+                self.imu_controller.alpha_yaw = 0.18
+                self.imu_controller.max_yaw_corr = 0.11
+            else:
+                self.imu_controller.Kp_yaw = 0.12
+                self.imu_controller.Kd_yaw = 0.025
+                self.imu_controller.alpha_yaw = 0.16
+                self.imu_controller.max_yaw_corr = 0.08
+        else:
+            self.imu_controller.Kp_yaw = 0.08
+            self.imu_controller.Kd_yaw = 0.020
+            self.imu_controller.alpha_yaw = 0.12
+            self.imu_controller.max_yaw_corr = 0.06
+        self.imu_controller.deadband_yaw = 0.01
 
     def _compose_body_pose(self, base_state):
-        imu_pos, imu_orn = self.imu_controller.compute(base_state)
+        yaw = float(self.base_env.return_yaw()) if self.enable_imu_yaw else None
+        imu_pos, imu_orn = self.imu_controller.compute(base_state, yaw=yaw)
         pos = self.body_position.copy() + imu_pos
         orn = self.body_orientation_bias.copy() + imu_orn
         return pos.astype(np.float32), orn.astype(np.float32)
+
+    def _get_orientation_features(self):
+        if not self.enable_imu_yaw:
+            return np.zeros(0, dtype=np.float32)
+
+        yaw = float(self.base_env.return_yaw())
+        return np.array(
+            [
+                yaw,
+                np.sin(yaw),
+                np.cos(yaw),
+                float(self.imu_controller.yaw_corr),
+            ],
+            dtype=np.float32,
+        )
 
     def _apply_contact_offsets(self):
         for leg_name, offset in self.contact_offsets.items():
@@ -473,11 +621,16 @@ class SpotMLWalkEnv(gym.Env):
             alpha_yaw = 0.10
             alpha_vel = 0.08
 
-        if self.gait_mode == "four_phase":
-            # Train the crawl to go straight and forward only.
+        if self.gait_mode == "four_phase" and not self.allow_turning_commands:
+            # Keep existing trained crawl policies compatible: their lateral
+            # and yaw actions were ignored during training.
             target_step = max(0.0, float(action[0]))
             target_lat = 0.0
             target_yaw = 0.0
+        elif self.gait_mode == "four_phase":
+            target_step = max(0.0, float(action[0]))
+            target_lat = float(action[1])
+            target_yaw = float(action[2])
         else:
             target_step = float(action[0])
             target_lat = float(action[1])
@@ -537,6 +690,11 @@ class SpotMLWalkEnv(gym.Env):
                 self.bzg.Tswing = 0.40
             else:
                 self.bzg.Tswing = 0.28
+            if self.allow_turning_commands and self.manual_curve_height is not None:
+                speed_scale = float(np.clip(self.manual_curve_speed_scale, 0.35, 1.0))
+                step_velocity *= speed_scale
+                self.cmd_vel = step_velocity
+                self.bzg.Tswing /= max(speed_scale, 1e-6)
 
         self.bz_step.StepLength = step_length
         self.bz_step.LateralFraction = lateral_fraction
@@ -545,8 +703,27 @@ class SpotMLWalkEnv(gym.Env):
 
         contacts = base_state[-4:]
 
+        step_command = step_length
+        if (
+            self.gait_mode == "trot"
+            and self.allow_turning_commands
+            and abs(step_length) > 1e-4
+            and abs(lateral_fraction) < 1e-4
+            and abs(stabilized_yaw_rate) < 1e-4
+            and (
+                abs(self.manual_forward_left_step_gain - 1.0) > 1e-4
+                or abs(self.manual_forward_right_step_gain - 1.0) > 1e-4
+            )
+        ):
+            step_command = {
+                "FL": step_length * self.manual_forward_left_step_gain,
+                "BL": step_length * self.manual_forward_left_step_gain,
+                "FR": step_length * self.manual_forward_right_step_gain,
+                "BR": step_length * self.manual_forward_right_step_gain,
+            }
+
         self.T_bf = self.bzg.GenerateTrajectory(
-            step_length,
+            step_command,
             lateral_fraction,
             stabilized_yaw_rate,
             step_velocity,
@@ -563,9 +740,11 @@ class SpotMLWalkEnv(gym.Env):
 
         return joint_angles.reshape(-1)
 
-    def _get_ml_observation(self, base_obs=None):
+    def _get_ml_observation(self, base_obs=None, include_orientation_features=None):
         if base_obs is None:
             base_obs = self.base_env.return_state()
+        if include_orientation_features is None:
+            include_orientation_features = self.enable_imu_yaw
 
         base_obs = np.array(base_obs, dtype=np.float32)
         base_height = np.array([self.base_env.spot.GetBasePosition()[2]], dtype=np.float32)
@@ -590,6 +769,9 @@ class SpotMLWalkEnv(gym.Env):
             phase_sin,
             phase_cos
         ]).astype(np.float32)
+
+        if include_orientation_features:
+            obs = np.concatenate([obs, self._get_orientation_features()]).astype(np.float32)
 
         return obs
 
@@ -720,6 +902,8 @@ class SpotMLWalkEnv(gym.Env):
             "terrain_profile": self.terrain_profile,
             "height_field": bool(self.height_field),
             "terrain_randomization": bool(self.terrain_randomization),
+            "imu_yaw_enabled": bool(self.enable_imu_yaw),
+            "imu_yaw_correction": float(self.imu_controller.yaw_corr),
             "is_fallen": bool(self.base_env.is_fallen()),
             "base_position": current_base_pos,
             "forward_speed": float(self.last_forward_speed),
@@ -853,7 +1037,15 @@ class SpotMLDualIMUStableWalkEnv(SpotMLWalkEnv):
             dtype=np.float32,
         )
 
-        obs_dim = 16 + self.ACTION_DIM + self.COMMAND_STATE_DIM + 8 + 4 + self.DUAL_IMU_FEATURE_DIM
+        obs_dim = (
+            16
+            + self.ACTION_DIM
+            + self.COMMAND_STATE_DIM
+            + 8
+            + 4
+            + self.DUAL_IMU_FEATURE_DIM
+            + self.imu_orientation_feature_dim
+        )
         self.observation_space = spaces.Box(
             low=-np.inf,
             high=np.inf,
@@ -1096,9 +1288,11 @@ class SpotMLDualIMUStableWalkEnv(SpotMLWalkEnv):
         self.base_env.spot.GetExternalObservations(self.bzg, self.bz_step)
         return joint_angles.reshape(-1)
 
-    def _get_ml_observation(self, base_obs=None):
+    def _get_ml_observation(self, base_obs=None, include_orientation_features=None):
         if base_obs is None:
             base_obs = self.base_env.return_state()
+        if include_orientation_features is None:
+            include_orientation_features = self.enable_imu_yaw
 
         base_obs = np.array(base_obs, dtype=np.float32)
         leg_phases = np.array(self.base_env.spot.LegPhases, dtype=np.float32)
@@ -1126,6 +1320,8 @@ class SpotMLDualIMUStableWalkEnv(SpotMLWalkEnv):
                 dual_imu_obs.astype(np.float32),
             ]
         ).astype(np.float32)
+        if include_orientation_features:
+            obs = np.concatenate([obs, self._get_orientation_features()]).astype(np.float32)
         return obs
 
     def _compute_reward(self, action, done=False):
@@ -1232,6 +1428,8 @@ class SpotMLDualIMUStableWalkEnv(SpotMLWalkEnv):
             {
                 "walk_variant": "dual_imu_stable_v1",
                 "body_pitch_bias_deg": float(self.body_pitch_bias_deg),
+                "imu_yaw_enabled": bool(self.enable_imu_yaw),
+                "imu_yaw_correction": float(self.imu_controller.yaw_corr),
                 "forward_speed_target": self.target_forward_speed,
                 "gait_mode": self.gait_mode,
                 "terrain_profile": self.terrain_profile,
@@ -1786,6 +1984,7 @@ class SpotMLRoughTeacherJointResidualEnv(SpotMLRoughDualIMUStableWalkEnv):
         self.teacher_obs_var = None
         self.teacher_clip_obs = 10.0
         self.teacher_epsilon = 1e-8
+        self.teacher_uses_orientation_features = False
 
         self.prev_joint_residual_action = np.zeros(self.JOINT_DIM, dtype=np.float32)
         self.joint_residuals = np.zeros(self.JOINT_DIM, dtype=np.float32)
@@ -1812,6 +2011,18 @@ class SpotMLRoughTeacherJointResidualEnv(SpotMLRoughDualIMUStableWalkEnv):
         from stable_baselines3 import PPO
 
         self.teacher_model = PPO.load(self.teacher_model_path, device="auto")
+        teacher_obs_dim = int(np.prod(self.teacher_model.observation_space.shape))
+        base_teacher_obs_dim = SpotMLDualIMUStableWalkEnv._get_ml_observation(
+            self,
+            self.base_env.return_state(),
+            include_orientation_features=False,
+        ).shape[0]
+        yaw_teacher_obs_dim = SpotMLDualIMUStableWalkEnv._get_ml_observation(
+            self,
+            self.base_env.return_state(),
+            include_orientation_features=True,
+        ).shape[0]
+        self.teacher_uses_orientation_features = teacher_obs_dim == yaw_teacher_obs_dim
 
         if self.teacher_vecnormalize_path is None:
             return
@@ -1830,6 +2041,9 @@ class SpotMLRoughTeacherJointResidualEnv(SpotMLRoughDualIMUStableWalkEnv):
         self.teacher_obs_var = np.asarray(obs_rms.var, dtype=np.float32)
         self.teacher_clip_obs = float(getattr(vecnormalize, "clip_obs", 10.0))
         self.teacher_epsilon = float(getattr(vecnormalize, "epsilon", 1e-8))
+        self.teacher_uses_orientation_features = teacher_obs_dim == yaw_teacher_obs_dim
+        if teacher_obs_dim not in (base_teacher_obs_dim, yaw_teacher_obs_dim):
+            self.teacher_uses_orientation_features = False
 
     def _normalize_teacher_obs(self, teacher_obs):
         teacher_obs = np.asarray(teacher_obs, dtype=np.float32)
@@ -1844,7 +2058,11 @@ class SpotMLRoughTeacherJointResidualEnv(SpotMLRoughDualIMUStableWalkEnv):
         )
 
     def _predict_teacher_action(self, base_obs=None):
-        teacher_obs = SpotMLDualIMUStableWalkEnv._get_ml_observation(self, base_obs)
+        teacher_obs = SpotMLDualIMUStableWalkEnv._get_ml_observation(
+            self,
+            base_obs,
+            include_orientation_features=self.teacher_uses_orientation_features,
+        )
         normalized_obs = self._normalize_teacher_obs(teacher_obs)
         teacher_action, _ = self.teacher_model.predict(normalized_obs, deterministic=True)
         teacher_action = np.asarray(teacher_action, dtype=np.float32).reshape(-1)

@@ -16,30 +16,11 @@ os.environ["MKL_NUM_THREADS"] = "1"
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.abspath(os.path.join(CURRENT_DIR, "..", ".."))
 CACHE_DIR = os.path.join(PROJECT_ROOT, ".cache")
-DEFAULT_QUICK_ROUGH_WARMSTART = os.path.join(
-    PROJECT_ROOT,
-    "spot_bullet",
-    "training_runs",
-    "rough_walk_height_residual_v3",
-)
-DEFAULT_QUICK_ROUGH_DUAL_IMU_WARMSTART = os.path.join(
-    PROJECT_ROOT,
-    "spot_bullet",
-    "training_runs",
-    "dual_imu_stable_forward_v2",
-)
-DEFAULT_TEACHER_LONGWALK_V2 = os.path.join(
-    PROJECT_ROOT,
-    "spot_bullet",
-    "training_runs",
-    "dual_imu_longwalk_v2",
-)
-DEFAULT_TEACHER_LONGWALK_V1 = os.path.join(
-    PROJECT_ROOT,
-    "spot_bullet",
-    "training_runs",
-    "dual_imu_longwalk_v1",
-)
+TRAINING_ROOT_NAMES = ("training runs", "training_runs")
+DEFAULT_QUICK_ROUGH_WARMSTART_NAME = "rough_walk_height_residual_v3"
+DEFAULT_QUICK_ROUGH_DUAL_IMU_WARMSTART_NAME = "dual_imu_stable_forward_v2"
+DEFAULT_TEACHER_LONGWALK_V2_NAME = "dual_imu_longwalk_v2"
+DEFAULT_TEACHER_LONGWALK_V1_NAME = "dual_imu_longwalk_v1"
 
 os.makedirs(os.path.join(CACHE_DIR, "matplotlib"), exist_ok=True)
 os.makedirs(os.path.join(CACHE_DIR, "fontconfig"), exist_ok=True)
@@ -54,7 +35,7 @@ if PROJECT_ROOT not in sys.path:
 
 def dependency_error(exc: ModuleNotFoundError) -> None:
     missing_module = exc.name or "a required package"
-    requirements_path = os.path.join(CURRENT_DIR, "requirements.txt")
+    requirements_path = os.path.join(PROJECT_ROOT, "spot_bullet", "requirements.txt")
     raise SystemExit(
         f"Missing dependency: {missing_module}\n"
         f"Install the packages from {requirements_path} before training.\n"
@@ -163,6 +144,42 @@ def patch_numpy_module_aliases() -> None:
         numpy_umath = getattr(numpy_core, "umath", None)
     if numpy_umath is not None:
         sys.modules.setdefault("numpy._core.umath", numpy_umath)
+
+
+def training_root_candidates() -> list[Path]:
+    spot_bullet_root = Path(PROJECT_ROOT) / "spot_bullet"
+    return [spot_bullet_root / root_name for root_name in TRAINING_ROOT_NAMES]
+
+
+def default_output_root() -> str:
+    for candidate in training_root_candidates():
+        if candidate.is_dir():
+            return str(candidate)
+    return str(training_root_candidates()[0])
+
+
+def resolve_named_run_dir(run_name: str) -> str | None:
+    for root in training_root_candidates():
+        candidate = root / run_name
+        if candidate.is_dir():
+            return str(candidate.resolve())
+    return None
+
+
+def resolve_repo_run_dir(run_dir_arg: str | None) -> Path | None:
+    if not run_dir_arg:
+        return None
+
+    run_dir = Path(run_dir_arg).expanduser()
+    if run_dir.exists():
+        return run_dir.resolve()
+
+    for root in training_root_candidates():
+        candidate = root / run_dir.name
+        if candidate.is_dir():
+            return candidate.resolve()
+
+    return run_dir.resolve()
 
 
 class PreviewArtifactsCallback(BaseCallback):
@@ -335,6 +352,11 @@ def parse_args():
         help="Optional run folder name. Defaults to a timestamped fresh run.",
     )
     parser.add_argument(
+        "--allow-run-overwrite",
+        action="store_true",
+        help="Allow writing into an existing run folder. By default, existing run folders are protected.",
+    )
+    parser.add_argument(
         "--init-from-run",
         default=None,
         help="Optional existing run directory to warm-start from before training.",
@@ -347,7 +369,7 @@ def parse_args():
     )
     parser.add_argument(
         "--output-root",
-        default=os.path.join(PROJECT_ROOT, "spot_bullet", "training_runs"),
+        default=default_output_root(),
         help="Folder where checkpoints, logs, and normalization stats are saved.",
     )
     parser.add_argument(
@@ -389,6 +411,19 @@ def parse_args():
         action="store_true",
         help="Let the rough-terrain camera pitch/roll with the body instead of stabilizing to the horizon.",
     )
+    parser.add_argument(
+        "--enable-imu-yaw",
+        dest="enable_imu_yaw",
+        action="store_true",
+        help="Expose yaw-aware IMU features to the policy and enable yaw stabilization in the body controller.",
+    )
+    parser.add_argument(
+        "--disable-imu-yaw",
+        dest="enable_imu_yaw",
+        action="store_false",
+        help="Disable yaw-aware IMU features and yaw stabilization in the body controller.",
+    )
+    parser.set_defaults(enable_imu_yaw=None)
     parser.add_argument(
         "--camera-pitch-offset-deg",
         type=float,
@@ -484,8 +519,8 @@ def resolve_walk_defaults(args):
             args.timesteps = 100_000
         if args.run_name is None:
             args.run_name = "rough_quick_tune_v1"
-        if args.init_from_run is None and os.path.isdir(DEFAULT_QUICK_ROUGH_WARMSTART):
-            args.init_from_run = DEFAULT_QUICK_ROUGH_WARMSTART
+        if args.init_from_run is None:
+            args.init_from_run = resolve_named_run_dir(DEFAULT_QUICK_ROUGH_WARMSTART_NAME)
         if args.preview_freq == 10_000:
             args.preview_freq = 5_000
         if args.preview_steps == 220:
@@ -499,8 +534,8 @@ def resolve_walk_defaults(args):
             args.timesteps = 100_000
         if args.run_name is None:
             args.run_name = "rough_dual_imu_tune_v1"
-        if args.init_from_run is None and os.path.isdir(DEFAULT_QUICK_ROUGH_DUAL_IMU_WARMSTART):
-            args.init_from_run = DEFAULT_QUICK_ROUGH_DUAL_IMU_WARMSTART
+        if args.init_from_run is None:
+            args.init_from_run = resolve_named_run_dir(DEFAULT_QUICK_ROUGH_DUAL_IMU_WARMSTART_NAME)
         if args.preview_freq == 10_000:
             args.preview_freq = 5_000
         if args.preview_steps == 220:
@@ -522,6 +557,8 @@ def resolve_walk_defaults(args):
     args.terrain_randomization = bool(args.terrain_randomization or args.height_field)
     if args.enable_camera_observation is None:
         args.enable_camera_observation = args.terrain_profile == "rough"
+    if args.enable_imu_yaw is None:
+        args.enable_imu_yaw = True
     args.camera_stabilize_roll_pitch = not args.disable_camera_leveling
 
     if args.walk_variant in ("dual_imu_stable", "rough_dual_imu", "rough_teacher_joint_residual"):
@@ -564,12 +601,16 @@ def resolve_walk_defaults(args):
                     else SpotMLDualIMUStableWalkEnv.DEFAULT_STABLE_GEOMETRY_PROFILE
                 )
         if args.body_height_offset is None:
-            args.body_height_offset = 0.0
+            args.body_height_offset = (
+                SpotMLDualIMUStableWalkEnv.DEFAULT_ROUGH_WALK_BODY_HEIGHT_OFFSET
+                if args.terrain_profile == "rough"
+                else SpotMLDualIMUStableWalkEnv.DEFAULT_WALK_BODY_HEIGHT_OFFSET
+            )
         if args.body_pitch_bias_deg is None:
             if args.training_preset == "quick_rough_teacher_joint" and args.terrain_profile == "rough":
-                args.body_pitch_bias_deg = 0.0
+                args.body_pitch_bias_deg = -0.2
             elif args.training_preset == "quick_rough_dual_imu" and args.terrain_profile == "rough":
-                args.body_pitch_bias_deg = 0.0 if is_longwalk_transfer else -1.8
+                args.body_pitch_bias_deg = -0.2 if is_longwalk_transfer else -0.6
             else:
                 args.body_pitch_bias_deg = (
                     SpotMLDualIMUStableWalkEnv.DEFAULT_ROUGH_WALK_BODY_PITCH_BIAS_DEG
@@ -594,7 +635,7 @@ def resolve_walk_defaults(args):
                 args.body_height_offset = SpotMLWalkEnv.DEFAULT_ROUGH_WALK_BODY_HEIGHT_OFFSET
             if args.body_pitch_bias_deg is None:
                 args.body_pitch_bias_deg = (
-                    -3.0 if args.training_preset == "quick_rough"
+                    -1.0 if args.training_preset == "quick_rough"
                     else SpotMLWalkEnv.DEFAULT_ROUGH_WALK_BODY_PITCH_BIAS_DEG
                 )
             if args.auto_yaw_gain is None:
@@ -644,7 +685,9 @@ def resolve_init_model_path(run_dir_arg: str | None, model_kind: str) -> str | N
     if not run_dir_arg:
         return None
 
-    run_dir = Path(run_dir_arg).expanduser().resolve()
+    run_dir = resolve_repo_run_dir(run_dir_arg)
+    if run_dir is None:
+        return None
     if not run_dir.exists():
         raise SystemExit(f"Warm-start run directory not found: {run_dir}")
 
@@ -660,12 +703,13 @@ def resolve_init_model_path(run_dir_arg: str | None, model_kind: str) -> str | N
 
 
 def default_teacher_run_dir() -> str | None:
-    for candidate in (
-        DEFAULT_TEACHER_LONGWALK_V2,
-        DEFAULT_TEACHER_LONGWALK_V1,
-        DEFAULT_QUICK_ROUGH_DUAL_IMU_WARMSTART,
+    for candidate_name in (
+        DEFAULT_TEACHER_LONGWALK_V2_NAME,
+        DEFAULT_TEACHER_LONGWALK_V1_NAME,
+        DEFAULT_QUICK_ROUGH_DUAL_IMU_WARMSTART_NAME,
     ):
-        if os.path.isdir(candidate):
+        candidate = resolve_named_run_dir(candidate_name)
+        if candidate is not None:
             return candidate
     return None
 
@@ -760,6 +804,7 @@ def make_env(rank: int, args):
             body_pitch_bias_deg=args.body_pitch_bias_deg,
             auto_yaw_gain=args.auto_yaw_gain,
             gait_geometry_profile=args.gait_geometry,
+            enable_imu_yaw=args.enable_imu_yaw,
         )
         if env_class in (
             SpotMLRoughTerrainHeightResidualEnv,
@@ -786,6 +831,11 @@ def make_env(rank: int, args):
 def build_run_dirs(args):
     run_name = args.run_name or datetime.now().strftime("spot_ml_walk_%Y%m%d_%H%M%S")
     base_dir = os.path.join(os.path.abspath(args.output_root), run_name)
+    if os.path.isdir(base_dir) and os.listdir(base_dir) and not args.allow_run_overwrite:
+        raise SystemExit(
+            f"Training run already exists and is not empty: {base_dir}\n"
+            "Choose a new --run-name or pass --allow-run-overwrite intentionally."
+        )
     model_dir = os.path.join(base_dir, "models")
     best_model_dir = os.path.join(base_dir, "best_model")
     log_dir = os.path.join(base_dir, "logs")
@@ -830,6 +880,7 @@ def maybe_check_env(args):
         body_pitch_bias_deg=args.body_pitch_bias_deg,
         auto_yaw_gain=args.auto_yaw_gain,
         gait_geometry_profile=args.gait_geometry,
+        enable_imu_yaw=args.enable_imu_yaw,
     )
     if env_class in (
         SpotMLRoughTerrainHeightResidualEnv,
@@ -883,6 +934,7 @@ def main():
     print(f"Body height offset: {args.body_height_offset}")
     print(f"Body pitch bias (deg): {args.body_pitch_bias_deg}")
     print(f"Auto yaw gain: {args.auto_yaw_gain}")
+    print(f"IMU yaw stabilization enabled: {args.enable_imu_yaw}")
     print(f"PPO learning rate: {args.learning_rate}")
     print(f"PPO entropy coef: {args.ent_coef}")
     print(f"PPO clip range: {args.clip_range}")

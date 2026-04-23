@@ -1,251 +1,156 @@
-# Hello and welcome to SpotMini's software
+# SpotMini Mini PyBullet Platform
 
-This github repository was repurposed for our capstone project from the original author, Maurice Rahme, and the SpotMini community. 
+This repository contains the SpotMini Mini simulation, local dashboard tools, manual PyBullet control app, and reinforcement-learning training/playback scripts used for the capstone project.
 
-To get started, please download this repository first
+The current workflow is designed to run from the repository root:
 
-Access the spot_bullet folder -> src and please find the requirements.txt
-
-We will be running all these files on our terminal so access your terminal and navigate (cd ~) to the spot_bullet folder then into src. I have directions right below for 3 types of computers. Please follow the directions for your computer and download all the libraries in the requirements.txt.
-
-From spot_bullet, please find the src folder, and please find spot_tester.py
-
-Path = ________/spot_mini_mini/spot_bullet
-
-
-
-## FOR WINDOWS USERS:
-
-### 1. Create environment
-python -m venv spotmini-env
-
-### 2. Activate
-spotmini-env\Scripts\activate
-
-### 3. Upgrade pip
-pip install --upgrade pip setuptools wheel
-
-### 4. Install dependencies (Please get rid of # for pybullet and opencv)
-pip install -r requirements.txt
-
-### 5. Run
-python src\spot_tester.py
-
-
-
-
-## FOR MAC(INTEL) USERS:
-
-### 1. Create environment
-python3 -m venv spotmini-env
-
-### 2. Activate
-source spotmini-env/bin/activate
-
-### 3. Upgrade pip (VERY IMPORTANT)
-pip install --upgrade pip setuptools wheel
-
-### 4. Install dependencies
-pip install -r requirements.txt
-
-### 5. Run
-python src/spot_tester.py
-
-
-
-
-
-## FOR MAC(APPLE Silicon) USERS:
-
-### 1. Create environment
-conda create -n spotmini python=3.10 -y
-
-### 2. Activate
+```bash
+cd /Users/Diviprakash/PSU/spot_mini_mini
 conda activate spotmini
+```
 
-### 3. Install core dependencies (prevents Mac issues)
+## Environment Setup
+
+For the current macOS Apple Silicon setup:
+
+```bash
+conda create -n spotmini python=3.10 -y
+conda activate spotmini
 conda install -c conda-forge numpy scipy matplotlib opencv pybullet -y
-
-### 4. Upgrade pip
-pip install --upgrade pip wheel
-
-### 5. Pin setuptools because pkg_resources was removed in setuptools 82+
-pip install "setuptools<82"
-
-### 6. Install secondary dependencies
-pip install gym==0.26.2 gymnasium==0.29.1 stable-baselines3==2.3.2 filterpy==1.4.5
-
-### 5. Install remaining dependencies
-pip install -r requirements.txt
-
-### 6. Run
-python spot_tester.py
-
-
-
-
-
-
-# Dashboard Setup
-
-Hello and welcome to SpotMini's local dashboard
-
-This guide explains how to run the SpotMini dashboard on a new machine.
-
-Please download or clone this repository first.
-
-This dashboard is inside the `Sim Display` folder.
-
-Path = ______/spot_mini_mini/spot_bullet/Sim Display
-
-Important:
-- The dashboard itself is a local Streamlit app.
-- To open it like a desktop window, you also need `pywebview`.
-- If `pywebview` is not installed, the launcher will still open the dashboard in your browser.
-- This dashboard template does not require ROS or PyBullet just to open the UI.
-
-## FOR WINDOWS USERS:
-
-### 1. Open terminal and go to the project folder
-```bash
-cd path\to\spot_mini_mini
-```
-
-### 2. Create environment
-```bash
-python -m venv spotmini-dashboard-env
-```
-
-### 3. Activate
-```bash
-spotmini-dashboard-env\Scripts\activate
-```
-
-### 4. Upgrade pip
-```bash
-python -m pip install --upgrade pip setuptools wheel
-```
-
-### 5. Install dashboard dependencies
-```bash
-python -m pip install streamlit pywebview
-```
-
-### 6. Run
-```bash
-python "spot_bullet\Sim Display\launch_dashboard.py"
-```
-
-## FOR MAC(INTEL) USERS:
-
-### 1. Open terminal and go to the project folder
-```bash
-cd /path/to/spot_mini_mini
-```
-
-### 2. Create environment
-```bash
-python3 -m venv spotmini-dashboard-env
-```
-
-### 3. Activate
-```bash
-source spotmini-dashboard-env/bin/activate
-```
-
-### 4. Upgrade pip
-```bash
-python3 -m pip install --upgrade pip setuptools wheel
-```
-
-### 5. Install dashboard dependencies
-```bash
-python3 -m pip install streamlit pywebview
-```
-
-### 6. Run
-```bash
-python3 "spot_bullet/Sim Display/launch_dashboard.py"
-```
-
-## FOR MAC(APPLE Silicon) USERS:
-
-### 1. Open terminal and go to the project folder
-```bash
-cd /path/to/spot_mini_mini
-```
-
-### 2. Create environment
-```bash
-conda create -n spotmini-dash python=3.10 -y
-```
-
-### 3. Activate
-```bash
-conda activate spotmini-dash
-```
-
-### 4. Upgrade pip
-```bash
 python -m pip install --upgrade pip wheel
-```
-
-### 5. Pin setuptools because some project environments can break with newer versions
-```bash
 python -m pip install "setuptools<82"
-```
-
-### 6. Install dashboard dependencies
-```bash
+python -m pip install -r spot_bullet/src/requirements.txt
 python -m pip install streamlit pywebview
 ```
 
-### 7. Run
+The `setuptools<82` pin avoids `pkg_resources` breakage in the older Gym/PyBullet environment. `streamlit` and `pywebview` are needed for the local app windows.
+
+## Manual PyBullet App
+
+Use this when you want an app-style control panel plus the native PyBullet GUI:
+
 ```bash
-python "spot_bullet/Sim Display/launch_dashboard.py"
+python3 "spot_bullet/Sim Display/launch_manual_app.py"
 ```
 
-## WHAT SHOULD HAPPEN
+Inside the app:
 
-- The launcher will start the local dashboard.
-- If `pywebview` is installed correctly, the dashboard will open in a local desktop window.
-- If `pywebview` is missing, it will open in your default browser instead.
+- Click `Manual Mode` to control the robot with on-screen buttons.
+- Click `Test PPO Model` to choose a trained run and model checkpoint.
+- Use the gait buttons to switch between `trot` and `four_phase`.
+- Use the terrain buttons to switch between `flat` and `rough`.
+- Click `Launch Manual Mode` to start the PyBullet GUI.
+- Use `Force Restart Manual Worker` if the PyBullet worker is still running with an older version.
 
-## OPTIONAL
+Manual trot mode is currently a raw no-IMU baseline. The tuning values are intentionally fixed in the app while we tune gait behavior: forward step `0.050`, backward step `0.040`, turn assist `0.010`, turn rate `0.90`, strafe step `0.030`, strafe angle `0.80`, step velocity `0.54`, and curve height `0.040`.
 
-### Change the port
+## Main Dashboard
 
-If port `8502` is busy, you can change it before running the launcher.
+The original dashboard remains separate from the manual app:
 
-Windows:
 ```bash
-set SPOTMINI_DASHBOARD_PORT=8503
-python "spot_bullet\Sim Display\launch_dashboard.py"
-```
-
-Mac:
-```bash
-export SPOTMINI_DASHBOARD_PORT=8503
 python3 "spot_bullet/Sim Display/launch_dashboard.py"
 ```
 
-## FILES USED
+This starts the Streamlit dashboard on a local port. If `pywebview` is installed, it opens in a desktop window; otherwise it can fall back to a browser.
 
-- `display.py` = the dashboard UI
-- `launch_dashboard.py` = starts Streamlit and opens the local window
-- `README.md` = short summary
-- `DASHBOARD_SETUP.txt` = full tutorial for a new machine
+## Train A PPO Model
 
----
+Train a short smoke-test run:
 
+```bash
+python3 spot_bullet/src/spot_train_ml.py \
+  --timesteps 2048 \
+  --n-envs 1 \
+  --skip-env-check \
+  --preview-freq 0 \
+  --run-name yaw_smoke_test \
+  --enable-imu-yaw
+```
 
+Train a rough-terrain run from a previous model:
 
+```bash
+python3 spot_bullet/src/spot_train_ml.py \
+  --training-preset quick_rough \
+  --run-name rough_longwalk_yaw_transfer_v1 \
+  --enable-imu-yaw
+```
 
+Training runs are saved under:
 
+```text
+spot_bullet/training runs/<run-name>
+```
 
+The code also recognizes the older underscore folder name:
+
+```text
+spot_bullet/training_runs
+```
+
+## Play A PPO Model
+
+Run the newest available training run headlessly:
+
+```bash
+python3 spot_bullet/src/spot_play_ml.py --episodes 1
+```
+
+Run a specific model in the native PyBullet GUI:
+
+```bash
+python3 spot_bullet/src/spot_play_ml.py \
+  --run-dir "spot_bullet/training runs/yaw_smoke_test" \
+  --model final \
+  --episodes 1 \
+  --render \
+  --bullet-gui
+```
+
+Use `--model best` to load `best_model/best_model.zip`, or `--model final` to load `models/ppo_spot_walk_final.zip`.
+
+## Compare Models
+
+Compare multiple trained models without opening the GUI:
+
+```bash
+python3 spot_bullet/src/spot_compare_ml.py \
+  "spot_bullet/training runs/no_yaw_test" \
+  "spot_bullet/training runs/with_yaw_test" \
+  --model final \
+  --episodes 5 \
+  --sort-by reward
+```
+
+The comparison report includes reward, speed, distance, height error, fall rate, and timeout rate.
+
+## Testing And Crash Evidence
+
+The crash-test assignment report and commands are documented here:
+
+```text
+spot_bullet/CRASH_TEST_REPORT.md
+```
+
+Use those commands to capture screenshots before and after the implemented protections.
+
+## Important Files
+
+- `spot_bullet/Sim Display/display.py`: main dashboard UI.
+- `spot_bullet/Sim Display/launch_dashboard.py`: starts the main dashboard.
+- `spot_bullet/Sim Display/display_manual.py`: manual-control app UI.
+- `spot_bullet/Sim Display/launch_manual_app.py`: starts the native manual-control app.
+- `spot_bullet/Sim Display/manual_pybullet_worker.py`: PyBullet worker used by manual mode and PPO model testing.
+- `spot_bullet/src/spot_train_ml.py`: PPO training entrypoint.
+- `spot_bullet/src/spot_play_ml.py`: PPO playback entrypoint.
+- `spot_bullet/src/spot_compare_ml.py`: PPO comparison entrypoint.
+- `spot_bullet/src/spot_ml.py`: reinforcement-learning environment wrapper.
+- `spotmicro/GaitGenerator/Bezier.py`: Bezier gait trajectory generator.
 
 ## Citing Spot Mini Mini
-```
+
+```bibtex
 @software{spotminimini2020github,
   author = {Maurice Rahme and Ian Abraham and Matthew Elwin and Todd Murphey},
   title = {SpotMiniMini: Pybullet Gym Environment for Gait Modulation with Bezier Curves},
@@ -257,12 +162,10 @@ python3 "spot_bullet/Sim Display/launch_dashboard.py"
 
 ## Credits
 
-* Original Spot Design and CAD files: [Spot Micro AI Community](https://spotmicroai.readthedocs.io/en/latest/)
+Original Spot Design and CAD files: [Spot Micro AI Community](https://spotmicroai.readthedocs.io/en/latest/)
 
-* Collaborator on `OpenQuadruped` design, including mechanical parts, custom PCB, and Teensy interface: [Adham Elarabawy](https://github.com/adham-elarabawy/OpenQuadruped)
+Collaborator on `OpenQuadruped` design, including mechanical parts, custom PCB, and Teensy interface: [Adham Elarabawy](https://github.com/adham-elarabawy/OpenQuadruped)
 
-* OpenAI Gym and Heightfield Interface: [Minitaur Environment](https://github.com/bulletphysics/bullet3/blob/master/examples/pybullet/gym/pybullet_envs/bullet/minitaur.py)
+OpenAI Gym and Heightfield Interface: [Minitaur Environment](https://github.com/bulletphysics/bullet3/blob/master/examples/pybullet/gym/pybullet_envs/bullet/minitaur.py)
 
-* Deprecated URDF for earlier development: [Rex Gym](https://github.com/nicrusso7/rex-gym)
-
-Note: development for this project was haulted in November 2020 to respect my NDA with my employer.
+Deprecated URDF for earlier development: [Rex Gym](https://github.com/nicrusso7/rex-gym)

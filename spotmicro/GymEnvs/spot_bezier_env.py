@@ -84,6 +84,8 @@ class spotBezierEnv(spotGymEnv):
                  height_field=False,
                  AutoStepper=True,
                  action_dim=14,
+                 gui_safe_mode=None,
+                 follow_gui_camera=None,
                  contacts=True):
 
         super(spotBezierEnv, self).__init__(
@@ -126,6 +128,8 @@ class spotBezierEnv(spotGymEnv):
             draw_foot_path=draw_foot_path,
             height_field=height_field,
             AutoStepper=AutoStepper,
+            gui_safe_mode=gui_safe_mode,
+            follow_gui_camera=follow_gui_camera,
             contacts=contacts)
 
         # Residuals + Clearance Height + Penetration Depth
@@ -175,12 +179,16 @@ class spotBezierEnv(spotGymEnv):
             time_to_sleep = self.control_time_step - time_spent
             if time_to_sleep > 0:
                 time.sleep(time_to_sleep)
-            base_pos = self.spot.GetBasePosition()
-            # Keep the previous orientation of the camera set by the user.
-            [yaw, pitch,
-             dist] = self._pybullet_client.getDebugVisualizerCamera()[8:11]
-            self._pybullet_client.resetDebugVisualizerCamera(
-                dist, yaw, pitch, base_pos)
+            if self._follow_gui_camera:
+                base_pos = self.spot.GetBasePosition()
+                try:
+                    # Keep the previous orientation of the camera set by the user.
+                    [yaw, pitch,
+                     dist] = self._pybullet_client.getDebugVisualizerCamera()[8:11]
+                    self._pybullet_client.resetDebugVisualizerCamera(
+                        dist, yaw, pitch, base_pos)
+                except Exception:
+                    pass
 
         action = self._transform_action_to_motor_command(action)
         self.spot.Step(action)

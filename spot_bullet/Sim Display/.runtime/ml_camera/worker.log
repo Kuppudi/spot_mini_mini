@@ -64,3 +64,391 @@ TERRAIN SHAPE: 1
 Action SPACE: Box(-1.0, 1.0, (14,), float32)
 argv[0]=
 argv[0]=
+
+[2026-04-23T00:43:06] Starting ML camera worker for /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/training runs/with_yaw_test with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+
+[2026-04-23T00:43:07] Starting ML camera worker for /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/training runs/with_yaw_test with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+
+[2026-04-23T00:43:07] Starting ML camera worker for /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/training runs/with_yaw_test with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+
+[2026-04-23T00:43:10] Starting ML camera worker for /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/training runs/rough_longwalk_transfer_v1 with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Matplotlib is building the font cache; this may take a moment.
+Matplotlib is building the font cache; this may take a moment.
+Matplotlib is building the font cache; this may take a moment.
+Matplotlib is building the font cache; this may take a moment.
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+
+pybullet build time: Oct 21 2025 17:40:50
+pybullet build time: Oct 21 2025 17:40:50
+pybullet build time: Oct 21 2025 17:40:50
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/Sim Display/ml_camera_worker.py", line 50, in <module>
+Traceback (most recent call last):
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/Sim Display/ml_camera_worker.py", line 50, in <module>
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/Sim Display/ml_camera_worker.py", line 50, in <module>
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+Traceback (most recent call last):
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/Sim Display/ml_camera_worker.py", line 50, in <module>
+    from spot_play_ml import (
+    from spot_play_ml import (
+    from spot_play_ml import (
+    from spot_play_ml import (
+ImportError: cannot import name 'get_training_root' from 'spot_play_ml' (/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/spot_play_ml.py)
+ImportError: cannot import name 'get_training_root' from 'spot_play_ml' (/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/spot_play_ml.py)
+ImportError: cannot import name 'get_training_root' from 'spot_play_ml' (/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/spot_play_ml.py)
+ImportError: cannot import name 'get_training_root' from 'spot_play_ml' (/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/spot_play_ml.py)
+
+[2026-04-23T00:45:10] Starting ML camera worker for /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/training runs/dual_imu_longwalk_yaw_lowbody_v1 with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+Traceback (most recent call last):
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/Sim Display/ml_camera_worker.py", line 242, in main
+    base_env = DummyVecEnv([make_env(playback_args, run_config)])
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 30, in __init__
+    self.envs = [_patch_env(fn()) for fn in env_fns]
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 30, in <listcomp>
+    self.envs = [_patch_env(fn()) for fn in env_fns]
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/spot_play_ml.py", line 480, in _init
+    body_pitch_bias_deg = args.body_pitch_bias_deg
+AttributeError: 'Namespace' object has no attribute 'body_pitch_bias_deg'
+ML camera worker failed: 'Namespace' object has no attribute 'body_pitch_bias_deg'
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+
+[2026-04-23T00:46:52] Starting ML camera worker for /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/training runs/dual_imu_longwalk_yaw_lowbody_v1 with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gymnasium/core.py:311: UserWarning: [33mWARN: env.venv to get variables from other wrappers is deprecated and will be removed in v1.0, to get this variable you can do `env.unwrapped.venv` for environment variables or `env.get_wrapper_attr('venv')` that will search the reminding wrappers.[0m
+  logger.warn(
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gymnasium/core.py:311: UserWarning: [33mWARN: env.envs to get variables from other wrappers is deprecated and will be removed in v1.0, to get this variable you can do `env.unwrapped.envs` for environment variables or `env.get_wrapper_attr('envs')` that will search the reminding wrappers.[0m
+  logger.warn(
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+argv[0]=
+
+[2026-04-23T00:51:01] Starting ML camera worker for /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/training runs/dual_imu_longwalk_yaw_lowbody_v1 with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gymnasium/core.py:311: UserWarning: [33mWARN: env.venv to get variables from other wrappers is deprecated and will be removed in v1.0, to get this variable you can do `env.unwrapped.venv` for environment variables or `env.get_wrapper_attr('venv')` that will search the reminding wrappers.[0m
+  logger.warn(
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gymnasium/core.py:311: UserWarning: [33mWARN: env.envs to get variables from other wrappers is deprecated and will be removed in v1.0, to get this variable you can do `env.unwrapped.envs` for environment variables or `env.get_wrapper_attr('envs')` that will search the reminding wrappers.[0m
+  logger.warn(
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+argv[0]=
+
+[2026-04-23T00:56:19] Starting ML camera worker for /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/training runs/rough_dual_imu_tune_v1 with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+
+[2026-04-23T00:56:21] Starting ML camera worker for /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/training runs/rough_dual_imu_tune_v1 with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gymnasium/core.py:311: UserWarning: [33mWARN: env.venv to get variables from other wrappers is deprecated and will be removed in v1.0, to get this variable you can do `env.unwrapped.venv` for environment variables or `env.get_wrapper_attr('venv')` that will search the reminding wrappers.[0m
+  logger.warn(
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gymnasium/core.py:311: UserWarning: [33mWARN: env.envs to get variables from other wrappers is deprecated and will be removed in v1.0, to get this variable you can do `env.unwrapped.envs` for environment variables or `env.get_wrapper_attr('envs')` that will search the reminding wrappers.[0m
+  logger.warn(
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gymnasium/core.py:311: UserWarning: [33mWARN: env.venv to get variables from other wrappers is deprecated and will be removed in v1.0, to get this variable you can do `env.unwrapped.venv` for environment variables or `env.get_wrapper_attr('venv')` that will search the reminding wrappers.[0m
+  logger.warn(
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gymnasium/core.py:311: UserWarning: [33mWARN: env.envs to get variables from other wrappers is deprecated and will be removed in v1.0, to get this variable you can do `env.unwrapped.envs` for environment variables or `env.get_wrapper_attr('envs')` that will search the reminding wrappers.[0m
+  logger.warn(
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+TERRAIN SHAPE: 0
+TERRAIN SHAPE: 1
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+argv[0]=
+
+[2026-04-23T00:57:57] Starting ML camera worker for /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/training runs/no_yaw_test with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gymnasium/core.py:311: UserWarning: [33mWARN: env.venv to get variables from other wrappers is deprecated and will be removed in v1.0, to get this variable you can do `env.unwrapped.venv` for environment variables or `env.get_wrapper_attr('venv')` that will search the reminding wrappers.[0m
+  logger.warn(
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gymnasium/core.py:311: UserWarning: [33mWARN: env.envs to get variables from other wrappers is deprecated and will be removed in v1.0, to get this variable you can do `env.unwrapped.envs` for environment variables or `env.get_wrapper_attr('envs')` that will search the reminding wrappers.[0m
+  logger.warn(
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+TERRAIN SHAPE: 0
+TERRAIN SHAPE: 1
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+argv[0]=
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+argv[0]=
+
+[2026-04-23T01:06:11] Starting ML camera worker for /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/training runs/no_yaw_test with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gymnasium/core.py:311: UserWarning: [33mWARN: env.venv to get variables from other wrappers is deprecated and will be removed in v1.0, to get this variable you can do `env.unwrapped.venv` for environment variables or `env.get_wrapper_attr('venv')` that will search the reminding wrappers.[0m
+  logger.warn(
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gymnasium/core.py:311: UserWarning: [33mWARN: env.envs to get variables from other wrappers is deprecated and will be removed in v1.0, to get this variable you can do `env.unwrapped.envs` for environment variables or `env.get_wrapper_attr('envs')` that will search the reminding wrappers.[0m
+  logger.warn(
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+argv[0]=
+
+[2026-04-23T01:08:31] Starting ML camera worker for /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/training runs/dual_imu_longwalk_yaw_v1 with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+
+[2026-04-23T01:18:13] Starting ML camera worker for /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/training runs/dual_imu_longwalk_yaw_lowbody_v1 with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gymnasium/core.py:311: UserWarning: [33mWARN: env.venv to get variables from other wrappers is deprecated and will be removed in v1.0, to get this variable you can do `env.unwrapped.venv` for environment variables or `env.get_wrapper_attr('venv')` that will search the reminding wrappers.[0m
+  logger.warn(
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gymnasium/core.py:311: UserWarning: [33mWARN: env.envs to get variables from other wrappers is deprecated and will be removed in v1.0, to get this variable you can do `env.unwrapped.envs` for environment variables or `env.get_wrapper_attr('envs')` that will search the reminding wrappers.[0m
+  logger.warn(
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+argv[0]=
+
+[2026-04-23T01:19:30] Starting ML camera worker for /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/training runs/no_yaw_test with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gymnasium/core.py:311: UserWarning: [33mWARN: env.venv to get variables from other wrappers is deprecated and will be removed in v1.0, to get this variable you can do `env.unwrapped.venv` for environment variables or `env.get_wrapper_attr('venv')` that will search the reminding wrappers.[0m
+  logger.warn(
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gymnasium/core.py:311: UserWarning: [33mWARN: env.envs to get variables from other wrappers is deprecated and will be removed in v1.0, to get this variable you can do `env.unwrapped.envs` for environment variables or `env.get_wrapper_attr('envs')` that will search the reminding wrappers.[0m
+  logger.warn(
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+argv[0]=
+
+[2026-04-23T01:20:00] Starting ML camera worker for /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/training runs/dual_imu_longwalk_yaw_v1 with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gymnasium/core.py:311: UserWarning: [33mWARN: env.venv to get variables from other wrappers is deprecated and will be removed in v1.0, to get this variable you can do `env.unwrapped.venv` for environment variables or `env.get_wrapper_attr('venv')` that will search the reminding wrappers.[0m
+  logger.warn(
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gymnasium/core.py:311: UserWarning: [33mWARN: env.envs to get variables from other wrappers is deprecated and will be removed in v1.0, to get this variable you can do `env.unwrapped.envs` for environment variables or `env.get_wrapper_attr('envs')` that will search the reminding wrappers.[0m
+  logger.warn(
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+argv[0]=
+
+[2026-04-23T01:20:26] Starting ML camera worker for /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/training runs/dual_imu_longwalk_v1 with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gymnasium/core.py:311: UserWarning: [33mWARN: env.venv to get variables from other wrappers is deprecated and will be removed in v1.0, to get this variable you can do `env.unwrapped.venv` for environment variables or `env.get_wrapper_attr('venv')` that will search the reminding wrappers.[0m
+  logger.warn(
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gymnasium/core.py:311: UserWarning: [33mWARN: env.envs to get variables from other wrappers is deprecated and will be removed in v1.0, to get this variable you can do `env.unwrapped.envs` for environment variables or `env.get_wrapper_attr('envs')` that will search the reminding wrappers.[0m
+  logger.warn(
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+argv[0]=
+
+[2026-04-23T01:20:35] Starting ML camera worker for /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/training runs/rough_longwalk_transfer_v1 with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gymnasium/core.py:311: UserWarning: [33mWARN: env.venv to get variables from other wrappers is deprecated and will be removed in v1.0, to get this variable you can do `env.unwrapped.venv` for environment variables or `env.get_wrapper_attr('venv')` that will search the reminding wrappers.[0m
+  logger.warn(
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gymnasium/core.py:311: UserWarning: [33mWARN: env.envs to get variables from other wrappers is deprecated and will be removed in v1.0, to get this variable you can do `env.unwrapped.envs` for environment variables or `env.get_wrapper_attr('envs')` that will search the reminding wrappers.[0m
+  logger.warn(
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+TERRAIN SHAPE: 0
+TERRAIN SHAPE: 1
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+argv[0]=
+
+[2026-04-23T01:22:37] Starting ML camera worker for /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/training runs/rough_longwalk_transfer_v1 with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gymnasium/core.py:311: UserWarning: [33mWARN: env.venv to get variables from other wrappers is deprecated and will be removed in v1.0, to get this variable you can do `env.unwrapped.venv` for environment variables or `env.get_wrapper_attr('venv')` that will search the reminding wrappers.[0m
+  logger.warn(
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gymnasium/core.py:311: UserWarning: [33mWARN: env.envs to get variables from other wrappers is deprecated and will be removed in v1.0, to get this variable you can do `env.unwrapped.envs` for environment variables or `env.get_wrapper_attr('envs')` that will search the reminding wrappers.[0m
+  logger.warn(
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+TERRAIN SHAPE: 0
+TERRAIN SHAPE: 1
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+argv[0]=
+
+[2026-04-23T01:23:02] Starting ML camera worker for /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/training runs/dual_imu_longwalk_yaw_lowbody_v1 with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gymnasium/core.py:311: UserWarning: [33mWARN: env.venv to get variables from other wrappers is deprecated and will be removed in v1.0, to get this variable you can do `env.unwrapped.venv` for environment variables or `env.get_wrapper_attr('venv')` that will search the reminding wrappers.[0m
+  logger.warn(
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gymnasium/core.py:311: UserWarning: [33mWARN: env.envs to get variables from other wrappers is deprecated and will be removed in v1.0, to get this variable you can do `env.unwrapped.envs` for environment variables or `env.get_wrapper_attr('envs')` that will search the reminding wrappers.[0m
+  logger.warn(
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+argv[0]=
+
+[2026-04-23T01:23:15] Starting ML camera worker for /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/training runs/rough_longwalk_transfer_v1 with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gymnasium/core.py:311: UserWarning: [33mWARN: env.venv to get variables from other wrappers is deprecated and will be removed in v1.0, to get this variable you can do `env.unwrapped.venv` for environment variables or `env.get_wrapper_attr('venv')` that will search the reminding wrappers.[0m
+  logger.warn(
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gymnasium/core.py:311: UserWarning: [33mWARN: env.envs to get variables from other wrappers is deprecated and will be removed in v1.0, to get this variable you can do `env.unwrapped.envs` for environment variables or `env.get_wrapper_attr('envs')` that will search the reminding wrappers.[0m
+  logger.warn(
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+TERRAIN SHAPE: 0
+TERRAIN SHAPE: 1
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+argv[0]=
+
+[2026-04-23T01:23:41] Starting ML camera worker for /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/training runs/dual_imu_longwalk_yaw_lowbody_v1 with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gymnasium/core.py:311: UserWarning: [33mWARN: env.venv to get variables from other wrappers is deprecated and will be removed in v1.0, to get this variable you can do `env.unwrapped.venv` for environment variables or `env.get_wrapper_attr('venv')` that will search the reminding wrappers.[0m
+  logger.warn(
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gymnasium/core.py:311: UserWarning: [33mWARN: env.envs to get variables from other wrappers is deprecated and will be removed in v1.0, to get this variable you can do `env.unwrapped.envs` for environment variables or `env.get_wrapper_attr('envs')` that will search the reminding wrappers.[0m
+  logger.warn(

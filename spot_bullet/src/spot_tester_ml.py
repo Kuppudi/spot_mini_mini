@@ -345,6 +345,7 @@ def build_env_args(seed: int) -> SimpleNamespace:
         unsafe_gui=True,
         follow_camera=True,
         enable_camera_observation=None,
+        enable_imu_yaw=None,
         disable_camera_leveling=False,
         camera_pitch_offset_deg=None,
         seed=seed,

@@ -3,6 +3,7 @@ import os
 import signal
 import subprocess
 import sys
+import time
 from datetime import datetime
 from pathlib import Path
 
@@ -16,7 +17,7 @@ STATUS_PATH = RUNTIME_DIR / "status.json"
 PID_PATH = RUNTIME_DIR / "worker.pid"
 LOG_PATH = RUNTIME_DIR / "worker.log"
 WORKER_PATH = APP_DIR / "ml_camera_worker.py"
-TRAINING_RUNS_DIR = APP_DIR.parent / "training_runs"
+TRAINING_RUN_ROOT_NAMES = ("training runs", "training_runs")
 
 st.set_page_config(
     page_title="SpotMini Dashboard",
@@ -219,36 +220,64 @@ def set_control_mode(mode):
         add_notification("Control Mode", "Robot switched to auto movement mode.", "lime")
 
 
+def training_run_roots():
+    roots = []
+    seen = set()
+    for root_name in TRAINING_RUN_ROOT_NAMES:
+        root = APP_DIR.parent / root_name
+        resolved = root.resolve()
+        if resolved in seen:
+            continue
+        seen.add(resolved)
+        roots.append(root)
+    return roots
+
+
 def discover_playable_runs():
     runs = []
-    if not TRAINING_RUNS_DIR.exists():
-        return runs
+    seen = set()
 
-    for run_dir in sorted(
-        [path for path in TRAINING_RUNS_DIR.iterdir() if path.is_dir()],
-        key=lambda path: path.stat().st_mtime,
-        reverse=True,
-    ):
+    candidates = []
+    for training_root in training_run_roots():
+        if not training_root.exists():
+            continue
+        candidates.extend(path for path in training_root.iterdir() if path.is_dir())
+
+    for run_dir in sorted(candidates, key=lambda path: path.stat().st_mtime, reverse=True):
+        resolved = run_dir.resolve()
+        if resolved in seen:
+            continue
+        seen.add(resolved)
+
         best_model = run_dir / "best_model" / "best_model.zip"
         if not best_model.exists():
             continue
 
         terrain_profile = "flat"
         gait_mode = "trot"
+        walk_variant = "default"
         config_path = run_dir / "run_config.json"
         if config_path.exists():
             try:
                 config = json.loads(config_path.read_text(encoding="utf-8"))
                 terrain_profile = config.get("terrain_profile") or terrain_profile
                 gait_mode = config.get("gait_mode") or gait_mode
+                walk_variant = config.get("walk_variant") or walk_variant
             except Exception:
                 pass
 
+        has_vecnormalize = (run_dir / "vecnormalize" / "vecnormalize.pkl").exists()
+        vecnormalize_label = "VecNormalize" if has_vecnormalize else "raw env"
         runs.append(
             {
-                "label": f"{run_dir.name} ({terrain_profile}, {gait_mode})",
+                "label": f"{run_dir.name} ({terrain_profile}, {gait_mode}, {vecnormalize_label})",
                 "path": str(run_dir),
                 "name": run_dir.name,
+                "root": str(run_dir.parent),
+                "terrain_profile": terrain_profile,
+                "gait_mode": gait_mode,
+                "walk_variant": walk_variant,
+                "has_vecnormalize": has_vecnormalize,
             }
         )
     return runs
@@ -290,6 +319,12 @@ def read_status():
         return {}
 
 
+def write_status(path, **payload):
+    payload.setdefault("timestamp", time.time())
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+
+
 def read_log_tail(max_lines=12):
     if not LOG_PATH.exists():
         return ""
@@ -309,15 +344,49 @@ def read_worker_pid():
         return None
 
 
-def worker_is_running():
-    pid = read_worker_pid()
-    if pid is None:
-        return False
+def pid_is_alive(pid):
     try:
         os.kill(pid, 0)
     except OSError:
         return False
-    return True
+
+    try:
+        result = subprocess.run(
+            ["ps", "-p", str(pid), "-o", "stat="],
+            capture_output=True,
+            text=True,
+            timeout=1.0,
+            check=False,
+        )
+    except Exception:
+        return True
+
+    state = result.stdout.strip()
+    if result.returncode != 0 or not state:
+        return False
+    return not state.startswith("Z")
+
+
+def worker_is_running():
+    pid = read_worker_pid()
+    if pid is None:
+        return False
+    running = pid_is_alive(pid)
+    if not running:
+        try:
+            PID_PATH.unlink()
+        except OSError:
+            pass
+    return running
+
+
+def same_path(left, right):
+    if not left or not right:
+        return False
+    try:
+        return Path(left).expanduser().resolve() == Path(right).expanduser().resolve()
+    except Exception:
+        return str(left) == str(right)
 
 
 def start_ml_camera_worker(run_dir):
@@ -325,6 +394,13 @@ def start_ml_camera_worker(run_dir):
         return False
 
     RUNTIME_DIR.mkdir(parents=True, exist_ok=True)
+    write_status(
+        STATUS_PATH,
+        state="starting",
+        running=False,
+        run_name=Path(run_dir).name,
+        run_dir=run_dir,
+    )
     worker_python = discover_worker_python()
     with open(LOG_PATH, "a", encoding="utf-8") as log_file:
         log_file.write(
@@ -332,7 +408,7 @@ def start_ml_camera_worker(run_dir):
         )
 
     with open(LOG_PATH, "a", encoding="utf-8") as log_file:
-        subprocess.Popen(
+        process = subprocess.Popen(
             [
                 worker_python,
                 str(WORKER_PATH),
@@ -347,18 +423,40 @@ def start_ml_camera_worker(run_dir):
             text=True,
             start_new_session=os.name != "nt",
         )
+    PID_PATH.write_text(str(process.pid), encoding="utf-8")
     return True
 
 
-def stop_ml_camera_worker():
+def wait_for_worker_exit(pid, timeout_seconds=10.0):
+    deadline = time.monotonic() + timeout_seconds
+    while time.monotonic() < deadline:
+        if not PID_PATH.exists():
+            return True
+        if not pid_is_alive(pid):
+            return True
+        time.sleep(0.1)
+    return False
+
+
+def stop_ml_camera_worker(wait=False):
     pid = read_worker_pid()
     if pid is None:
         return False
     try:
         os.kill(pid, signal.SIGTERM)
+        if wait:
+            return wait_for_worker_exit(pid)
         return True
     except OSError:
         return False
+
+
+def switch_ml_camera_worker(run_dir):
+    if worker_is_running():
+        stop_ml_camera_worker(wait=True)
+        if worker_is_running():
+            return False
+    return start_ml_camera_worker(run_dir)
 
 
 def render_camera_placeholder():
@@ -369,9 +467,14 @@ def render_camera_placeholder():
 
 
 AVAILABLE_RUNS = discover_playable_runs()
+AVAILABLE_RUN_PATHS = [run["path"] for run in AVAILABLE_RUNS]
 DEFAULT_RUN_PATH = AVAILABLE_RUNS[0]["path"] if AVAILABLE_RUNS else None
-if "ml_run_path" not in st.session_state:
+if "ml_run_path" not in st.session_state or (
+    AVAILABLE_RUN_PATHS and st.session_state.ml_run_path not in AVAILABLE_RUN_PATHS
+):
     st.session_state.ml_run_path = DEFAULT_RUN_PATH
+elif not AVAILABLE_RUN_PATHS:
+    st.session_state.ml_run_path = None
 
 AUTO_MODE_ENABLED = st.session_state.control_mode == "Auto"
 
@@ -533,33 +636,73 @@ with col3:
     if AVAILABLE_RUNS:
         st.selectbox(
             "ML Run",
-            options=[run["path"] for run in AVAILABLE_RUNS],
+            options=AVAILABLE_RUN_PATHS,
             format_func=lambda path: next((run["label"] for run in AVAILABLE_RUNS if run["path"] == path), path),
             key="ml_run_path",
         )
+        selected_run = next((run for run in AVAILABLE_RUNS if run["path"] == st.session_state.ml_run_path), None)
+        if selected_run:
+            st.caption(
+                "Loaded from "
+                f"`{selected_run['root']}` · "
+                f"variant `{selected_run['walk_variant']}` · "
+                f"{'normalization stats found' if selected_run['has_vecnormalize'] else 'normalization stats missing; worker will try raw env'}"
+            )
     else:
-        st.caption("No playable ML runs found yet. A valid run needs both a saved model and VecNormalize stats.")
+        scanned_roots = ", ".join(f"`{root}`" for root in training_run_roots())
+        st.warning(
+            "No playable ML runs found. A playable run needs "
+            "`best_model/best_model.zip` inside one of the scanned training folders."
+        )
+        st.caption(f"Scanned: {scanned_roots}")
 
     @st.fragment(run_every=1.0)
     def live_camera_fragment():
         status = read_status()
         running = worker_is_running()
-        frame_available = FRAME_PATH.exists()
+        selected_run_path = st.session_state.ml_run_path
+        active_run_path = status.get("run_dir")
+        selected_is_active = running and same_path(selected_run_path, active_run_path)
+        switch_pending = running and bool(selected_run_path) and not selected_is_active
+        cached_frame_available = FRAME_PATH.exists()
+        frame_available = running and cached_frame_available and not switch_pending
 
         if frame_available:
             st.image(str(FRAME_PATH), use_container_width=True)
         else:
             render_camera_placeholder()
+            if switch_pending:
+                selected_name = next(
+                    (run["name"] for run in AVAILABLE_RUNS if run["path"] == selected_run_path),
+                    "the selected run",
+                )
+                active_name = status.get("run_name", "the current worker")
+                st.caption(
+                    f"Selected `{selected_name}`, but the active worker is still `{active_name}`. "
+                    "Click Switch ML Feed to restart the camera worker with the selected run."
+                )
+            elif cached_frame_available:
+                st.caption("A cached frame exists, but the ML worker is not running, so the live feed is marked offline.")
 
         c1, c2 = st.columns(2)
         with c1:
-            if st.button("Start ML Feed", use_container_width=True, disabled=not AVAILABLE_RUNS):
-                started = start_ml_camera_worker(st.session_state.ml_run_path)
-                if started:
-                    st.session_state.last_action = "Started ML body camera feed"
-                    add_notification("ML Camera", "Live body camera feed started.", "lime")
+            start_label = "Switch ML Feed" if switch_pending else "Start ML Feed"
+            start_disabled = not AVAILABLE_RUNS or (running and not switch_pending)
+            if st.button(start_label, use_container_width=True, disabled=start_disabled):
+                if switch_pending:
+                    started = switch_ml_camera_worker(selected_run_path)
+                    if started:
+                        st.session_state.last_action = "Switched ML body camera feed"
+                        add_notification("ML Camera", "Camera worker restarted with the selected run.", "lime")
+                    else:
+                        add_notification("ML Camera", "Could not stop the previous camera worker yet.", "red")
                 else:
-                    add_notification("ML Camera", "Camera feed is already running.", "yellow")
+                    started = start_ml_camera_worker(selected_run_path)
+                    if started:
+                        st.session_state.last_action = "Started ML body camera feed"
+                        add_notification("ML Camera", "Live body camera feed started.", "lime")
+                    else:
+                        add_notification("ML Camera", "Camera feed is already running.", "yellow")
                 st.rerun()
         with c2:
             if st.button("Stop ML Feed", use_container_width=True, disabled=not running):
@@ -572,7 +715,13 @@ with col3:
         run_name = status.get("run_name", "Unavailable")
         feed_state = status.get("state", "idle")
         feed_speed = status.get("forward_speed")
-        status_text = "Running" if running else feed_state.title()
+        stale_running_status = not running and feed_state == "running"
+        if running:
+            status_text = "Running"
+        elif stale_running_status:
+            status_text = "Stopped (stale status)"
+        else:
+            status_text = feed_state.title()
         signal_text = "Live" if running and frame_available else "Idle"
 
         st.markdown(
@@ -595,6 +744,8 @@ with col3:
         st.caption(f"Worker Python: `{discover_worker_python()}`")
         if status.get("vecnormalize_loaded") is False and status.get("vecnormalize_error"):
             st.caption("Normalization fallback active: using raw environment because saved VecNormalize stats did not load cleanly.")
+        if stale_running_status:
+            st.caption("Previous worker status was left behind. Start the ML feed again to refresh the camera state.")
 
         if status.get("state") == "error":
             st.error(status.get("error", "ML camera worker failed."))

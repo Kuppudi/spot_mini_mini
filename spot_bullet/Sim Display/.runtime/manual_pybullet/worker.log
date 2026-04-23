@@ -1,0 +1,2417 @@
+
+[2026-04-23T01:39:21] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T01:40:23] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T01:43:24] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 0 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+Assertion failed: (glGetError() == GL_NO_ERROR), function Begin, file examples/ThirdPartyLibs/../OpenGLWindow/GwenOpenGL3CoreRenderer.h, line 123.
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+
+[2026-04-23T01:44:01] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T01:45:08] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T01:45:25] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+Traceback (most recent call last):
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/Sim Display/manual_pybullet_worker.py", line 204, in main
+    _, _, terminated, truncated, info = env.step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/spot_ml.py", line 760, in step
+    base_obs, _, done, info = self.base_env.step(np.zeros(4, dtype=np.float32))
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py", line 171, in step
+    self._last_base_orientation = self.spot.GetBaseOrientation()
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 540, in GetBaseOrientation
+    _, orientation = (self._pybullet_client.getBasePositionAndOrientation(
+pybullet.error: GetBasePositionAndOrientation failed.
+Manual PyBullet worker failed: GetBasePositionAndOrientation failed.
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T02:07:19] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T02:10:26] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T02:10:51] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T02:11:01] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+destroy semaphore
+semaphore destroyed
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T02:11:23] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T02:11:39] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T02:12:00] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+Traceback (most recent call last):
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/Sim Display/manual_pybullet_worker.py", line 364, in main
+    _, _, terminated, truncated, info = env.step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/spot_ml.py", line 831, in step
+    base_obs, _, done, info = self.base_env.step(np.zeros(4, dtype=np.float32))
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py", line 194, in step
+    self.spot.Step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 823, in Step
+    self.ApplyAction(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 818, in ApplyAction
+    self._SetDesiredMotorAngleById(motor_id,
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 453, in _SetDesiredMotorAngleById
+    self._pybullet_client.setJointMotorControl2(
+pybullet.error: Not connected to physics server.
+Manual PyBullet worker failed: Not connected to physics server.
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+destroy semaphore
+semaphore destroyed
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T02:13:37] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T02:20:18] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T02:20:51] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T02:22:50] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T02:25:34] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T02:26:15] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T02:27:38] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T02:28:11] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T02:28:45] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T02:29:04] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T02:30:10] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+Traceback (most recent call last):
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/Sim Display/manual_pybullet_worker.py", line 367, in main
+    _, _, terminated, truncated, info = env.step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/spot_ml.py", line 858, in step
+    base_obs, _, done, info = self.base_env.step(np.zeros(4, dtype=np.float32))
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py", line 194, in step
+    self.spot.Step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 823, in Step
+    self.ApplyAction(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 818, in ApplyAction
+    self._SetDesiredMotorAngleById(motor_id,
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 453, in _SetDesiredMotorAngleById
+    self._pybullet_client.setJointMotorControl2(
+pybullet.error: Not connected to physics server.
+Manual PyBullet worker failed: Not connected to physics server.
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+destroy semaphore
+semaphore destroyed
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T02:30:52] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T02:31:07] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+Traceback (most recent call last):
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/Sim Display/manual_pybullet_worker.py", line 367, in main
+    _, _, terminated, truncated, info = env.step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/spot_ml.py", line 858, in step
+    base_obs, _, done, info = self.base_env.step(np.zeros(4, dtype=np.float32))
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py", line 196, in step
+    reward = self._reward()
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py", line 266, in _reward
+    np.dot(self.spot.GetMotorTorques(),
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 866, in GetMotorTorques
+    motor_torques = [
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 867, in <listcomp>
+    self._pybullet_client.getJointState(self.quadruped,
+pybullet.error: getJointState failed.
+Manual PyBullet worker failed: getJointState failed.
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T02:31:22] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+Traceback (most recent call last):
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/Sim Display/manual_pybullet_worker.py", line 367, in main
+    _, _, terminated, truncated, info = env.step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/spot_ml.py", line 858, in step
+    base_obs, _, done, info = self.base_env.step(np.zeros(4, dtype=np.float32))
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py", line 194, in step
+    self.spot.Step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 825, in Step
+    self.RealisticObservation()
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 1044, in RealisticObservation
+    self._observation_history.appendleft(self.GetObservation())
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 632, in GetObservation
+    pos = self.GetBasePosition()
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 530, in GetBasePosition
+    position, _ = (self._pybullet_client.getBasePositionAndOrientation(
+pybullet.error: GetBasePositionAndOrientation failed.
+Manual PyBullet worker failed: GetBasePositionAndOrientation failed.
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T02:32:04] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+Traceback (most recent call last):
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/Sim Display/manual_pybullet_worker.py", line 367, in main
+    _, _, terminated, truncated, info = env.step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/spot_ml.py", line 858, in step
+    base_obs, _, done, info = self.base_env.step(np.zeros(4, dtype=np.float32))
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py", line 194, in step
+    self.spot.Step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 823, in Step
+    self.ApplyAction(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 818, in ApplyAction
+    self._SetDesiredMotorAngleById(motor_id,
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 453, in _SetDesiredMotorAngleById
+    self._pybullet_client.setJointMotorControl2(
+pybullet.error: Not connected to physics server.
+Manual PyBullet worker failed: Not connected to physics server.
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T02:33:07] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T02:33:26] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+Traceback (most recent call last):
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/Sim Display/manual_pybullet_worker.py", line 367, in main
+    _, _, terminated, truncated, info = env.step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/spot_ml.py", line 858, in step
+    base_obs, _, done, info = self.base_env.step(np.zeros(4, dtype=np.float32))
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py", line 194, in step
+    self.spot.Step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 823, in Step
+    self.ApplyAction(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 818, in ApplyAction
+    self._SetDesiredMotorAngleById(motor_id,
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 453, in _SetDesiredMotorAngleById
+    self._pybullet_client.setJointMotorControl2(
+pybullet.error: Not connected to physics server.
+Manual PyBullet worker failed: Not connected to physics server.
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T02:33:35] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+Traceback (most recent call last):
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/Sim Display/manual_pybullet_worker.py", line 367, in main
+    _, _, terminated, truncated, info = env.step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/spot_ml.py", line 858, in step
+    base_obs, _, done, info = self.base_env.step(np.zeros(4, dtype=np.float32))
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py", line 194, in step
+    self.spot.Step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 823, in Step
+    self.ApplyAction(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 818, in ApplyAction
+    self._SetDesiredMotorAngleById(motor_id,
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 453, in _SetDesiredMotorAngleById
+    self._pybullet_client.setJointMotorControl2(
+pybullet.error: Not connected to physics server.
+Manual PyBullet worker failed: Not connected to physics server.
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T02:34:40] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+Traceback (most recent call last):
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/Sim Display/manual_pybullet_worker.py", line 367, in main
+    _, _, terminated, truncated, info = env.step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/spot_ml.py", line 858, in step
+    base_obs, _, done, info = self.base_env.step(np.zeros(4, dtype=np.float32))
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py", line 194, in step
+    self.spot.Step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 823, in Step
+    self.ApplyAction(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 818, in ApplyAction
+    self._SetDesiredMotorAngleById(motor_id,
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 453, in _SetDesiredMotorAngleById
+    self._pybullet_client.setJointMotorControl2(
+pybullet.error: Not connected to physics server.
+Manual PyBullet worker failed: Not connected to physics server.
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+destroy semaphore
+semaphore destroyed
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T02:35:01] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T02:35:27] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T02:37:15] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+Traceback (most recent call last):
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/Sim Display/manual_pybullet_worker.py", line 367, in main
+    _, _, terminated, truncated, info = env.step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/spot_ml.py", line 858, in step
+    base_obs, _, done, info = self.base_env.step(np.zeros(4, dtype=np.float32))
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py", line 194, in step
+    self.spot.Step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 823, in Step
+    self.ApplyAction(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 818, in ApplyAction
+    self._SetDesiredMotorAngleById(motor_id,
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 453, in _SetDesiredMotorAngleById
+    self._pybullet_client.setJointMotorControl2(
+pybullet.error: Not connected to physics server.
+Manual PyBullet worker failed: Not connected to physics server.
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T02:38:16] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T02:39:55] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+Traceback (most recent call last):
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/Sim Display/manual_pybullet_worker.py", line 367, in main
+    _, _, terminated, truncated, info = env.step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/spot_ml.py", line 858, in step
+    base_obs, _, done, info = self.base_env.step(np.zeros(4, dtype=np.float32))
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py", line 194, in step
+    self.spot.Step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 823, in Step
+    self.ApplyAction(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 818, in ApplyAction
+    self._SetDesiredMotorAngleById(motor_id,
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 453, in _SetDesiredMotorAngleById
+    self._pybullet_client.setJointMotorControl2(
+pybullet.error: Not connected to physics server.
+Manual PyBullet worker failed: Not connected to physics server.
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+destroy semaphore
+Thread with taskId 0 exiting
+Thread TERMINATED
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T02:42:56] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T03:43:02] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+Traceback (most recent call last):
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/Sim Display/manual_pybullet_worker.py", line 367, in main
+    _, _, terminated, truncated, info = env.step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/spot_ml.py", line 858, in step
+    base_obs, _, done, info = self.base_env.step(np.zeros(4, dtype=np.float32))
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py", line 194, in step
+    self.spot.Step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 823, in Step
+    self.ApplyAction(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 818, in ApplyAction
+    self._SetDesiredMotorAngleById(motor_id,
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 453, in _SetDesiredMotorAngleById
+    self._pybullet_client.setJointMotorControl2(
+pybullet.error: Not connected to physics server.
+Manual PyBullet worker failed: Not connected to physics server.
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T04:31:15] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T04:37:01] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T04:45:37] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T04:51:58] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T05:02:10] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+Traceback (most recent call last):
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/Sim Display/manual_pybullet_worker.py", line 402, in main
+    _, _, terminated, truncated, info = env.step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/spot_ml.py", line 858, in step
+    base_obs, _, done, info = self.base_env.step(np.zeros(4, dtype=np.float32))
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py", line 194, in step
+    self.spot.Step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 823, in Step
+    self.ApplyAction(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 818, in ApplyAction
+    self._SetDesiredMotorAngleById(motor_id,
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 453, in _SetDesiredMotorAngleById
+    self._pybullet_client.setJointMotorControl2(
+pybullet.error: Not connected to physics server.
+Manual PyBullet worker failed: Not connected to physics server.
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T05:03:56] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T05:09:16] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+Traceback (most recent call last):
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/Sim Display/manual_pybullet_worker.py", line 428, in main
+    _, _, terminated, truncated, info = env.step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/spot_ml.py", line 859, in step
+    base_obs, _, done, info = self.base_env.step(np.zeros(4, dtype=np.float32))
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py", line 194, in step
+    self.spot.Step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 823, in Step
+    self.ApplyAction(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 818, in ApplyAction
+    self._SetDesiredMotorAngleById(motor_id,
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 453, in _SetDesiredMotorAngleById
+    self._pybullet_client.setJointMotorControl2(
+pybullet.error: Not connected to physics server.
+Manual PyBullet worker failed: Not connected to physics server.
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T05:09:41] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T05:15:40] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T05:29:51] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+Traceback (most recent call last):
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/Sim Display/manual_pybullet_worker.py", line 432, in main
+    _, _, terminated, truncated, info = env.step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/spot_ml.py", line 866, in step
+    base_obs, _, done, info = self.base_env.step(np.zeros(4, dtype=np.float32))
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py", line 194, in step
+    self.spot.Step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 823, in Step
+    self.ApplyAction(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 818, in ApplyAction
+    self._SetDesiredMotorAngleById(motor_id,
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 453, in _SetDesiredMotorAngleById
+    self._pybullet_client.setJointMotorControl2(
+pybullet.error: Not connected to physics server.
+Manual PyBullet worker failed: Not connected to physics server.
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+destroy semaphore
+semaphore destroyed
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T05:31:25] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+Traceback (most recent call last):
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/Sim Display/manual_pybullet_worker.py", line 432, in main
+    _, _, terminated, truncated, info = env.step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/spot_ml.py", line 866, in step
+    base_obs, _, done, info = self.base_env.step(np.zeros(4, dtype=np.float32))
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py", line 194, in step
+    self.spot.Step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 823, in Step
+    self.ApplyAction(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 818, in ApplyAction
+    self._SetDesiredMotorAngleById(motor_id,
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 453, in _SetDesiredMotorAngleById
+    self._pybullet_client.setJointMotorControl2(
+pybullet.error: Not connected to physics server.
+Manual PyBullet worker failed: Not connected to physics server.
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T05:35:32] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+destroy semaphore
+semaphore destroyed
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T05:38:54] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+Traceback (most recent call last):
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/Sim Display/manual_pybullet_worker.py", line 432, in main
+    _, _, terminated, truncated, info = env.step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/spot_ml.py", line 866, in step
+    base_obs, _, done, info = self.base_env.step(np.zeros(4, dtype=np.float32))
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py", line 194, in step
+    self.spot.Step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 823, in Step
+    self.ApplyAction(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 818, in ApplyAction
+    self._SetDesiredMotorAngleById(motor_id,
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 453, in _SetDesiredMotorAngleById
+    self._pybullet_client.setJointMotorControl2(
+pybullet.error: Not connected to physics server.
+Manual PyBullet worker failed: Not connected to physics server.
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T05:39:39] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T05:41:37] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+Traceback (most recent call last):
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/Sim Display/manual_pybullet_worker.py", line 440, in main
+    _, _, terminated, truncated, info = env.step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/spot_ml.py", line 866, in step
+    base_obs, _, done, info = self.base_env.step(np.zeros(4, dtype=np.float32))
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py", line 194, in step
+    self.spot.Step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 823, in Step
+    self.ApplyAction(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 818, in ApplyAction
+    self._SetDesiredMotorAngleById(motor_id,
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 453, in _SetDesiredMotorAngleById
+    self._pybullet_client.setJointMotorControl2(
+pybullet.error: Not connected to physics server.
+Manual PyBullet worker failed: Not connected to physics server.
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+destroy semaphore
+semaphore destroyed
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T05:43:20] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+Traceback (most recent call last):
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/Sim Display/manual_pybullet_worker.py", line 440, in main
+    _, _, terminated, truncated, info = env.step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/spot_ml.py", line 866, in step
+    base_obs, _, done, info = self.base_env.step(np.zeros(4, dtype=np.float32))
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py", line 171, in step
+    self._last_base_orientation = self.spot.GetBaseOrientation()
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 540, in GetBaseOrientation
+    _, orientation = (self._pybullet_client.getBasePositionAndOrientation(
+pybullet.error: GetBasePositionAndOrientation failed.
+Manual PyBullet worker failed: GetBasePositionAndOrientation failed.
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T05:48:09] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+Traceback (most recent call last):
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/Sim Display/manual_pybullet_worker.py", line 440, in main
+    _, _, terminated, truncated, info = env.step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/spot_ml.py", line 866, in step
+    base_obs, _, done, info = self.base_env.step(np.zeros(4, dtype=np.float32))
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py", line 194, in step
+    self.spot.Step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 823, in Step
+    self.ApplyAction(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 818, in ApplyAction
+    self._SetDesiredMotorAngleById(motor_id,
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 453, in _SetDesiredMotorAngleById
+    self._pybullet_client.setJointMotorControl2(
+pybullet.error: Not connected to physics server.
+Manual PyBullet worker failed: Not connected to physics server.
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T05:49:30] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+Traceback (most recent call last):
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/Sim Display/manual_pybullet_worker.py", line 445, in main
+    _, _, terminated, truncated, info = env.step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/spot_ml.py", line 866, in step
+    base_obs, _, done, info = self.base_env.step(np.zeros(4, dtype=np.float32))
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py", line 194, in step
+    self.spot.Step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 823, in Step
+    self.ApplyAction(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 818, in ApplyAction
+    self._SetDesiredMotorAngleById(motor_id,
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 453, in _SetDesiredMotorAngleById
+    self._pybullet_client.setJointMotorControl2(
+pybullet.error: Not connected to physics server.
+Manual PyBullet worker failed: Not connected to physics server.
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+destroy semaphore
+semaphore destroyed
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T05:51:57] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+destroy semaphore
+semaphore destroyed
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T05:55:50] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+Traceback (most recent call last):
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/Sim Display/manual_pybullet_worker.py", line 455, in main
+    _, _, terminated, truncated, info = env.step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/spot_ml.py", line 866, in step
+    base_obs, _, done, info = self.base_env.step(np.zeros(4, dtype=np.float32))
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py", line 171, in step
+    self._last_base_orientation = self.spot.GetBaseOrientation()
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 540, in GetBaseOrientation
+    _, orientation = (self._pybullet_client.getBasePositionAndOrientation(
+pybullet.error: GetBasePositionAndOrientation failed.
+Manual PyBullet worker failed: GetBasePositionAndOrientation failed.
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T05:58:56] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T05:59:38] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+Traceback (most recent call last):
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/Sim Display/manual_pybullet_worker.py", line 455, in main
+    _, _, terminated, truncated, info = env.step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/spot_ml.py", line 866, in step
+    base_obs, _, done, info = self.base_env.step(np.zeros(4, dtype=np.float32))
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py", line 194, in step
+    self.spot.Step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 823, in Step
+    self.ApplyAction(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 818, in ApplyAction
+    self._SetDesiredMotorAngleById(motor_id,
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 453, in _SetDesiredMotorAngleById
+    self._pybullet_client.setJointMotorControl2(
+pybullet.error: Not connected to physics server.
+Manual PyBullet worker failed: Not connected to physics server.
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+destroy semaphore
+semaphore destroyed
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T06:02:18] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+Traceback (most recent call last):
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/Sim Display/manual_pybullet_worker.py", line 455, in main
+    _, _, terminated, truncated, info = env.step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/spot_ml.py", line 866, in step
+    base_obs, _, done, info = self.base_env.step(np.zeros(4, dtype=np.float32))
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py", line 194, in step
+    self.spot.Step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 823, in Step
+    self.ApplyAction(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 818, in ApplyAction
+    self._SetDesiredMotorAngleById(motor_id,
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 453, in _SetDesiredMotorAngleById
+    self._pybullet_client.setJointMotorControl2(
+pybullet.error: Not connected to physics server.
+Manual PyBullet worker failed: Not connected to physics server.
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+destroy semaphore
+semaphore destroyed
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T06:12:32] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T06:15:25] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+Traceback (most recent call last):
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/Sim Display/manual_pybullet_worker.py", line 452, in main
+    _, _, terminated, truncated, info = env.step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/spot_ml.py", line 887, in step
+    base_obs, _, done, info = self.base_env.step(np.zeros(4, dtype=np.float32))
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py", line 194, in step
+    self.spot.Step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 823, in Step
+    self.ApplyAction(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 818, in ApplyAction
+    self._SetDesiredMotorAngleById(motor_id,
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 453, in _SetDesiredMotorAngleById
+    self._pybullet_client.setJointMotorControl2(
+pybullet.error: Not connected to physics server.
+Manual PyBullet worker failed: Not connected to physics server.
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+destroy semaphore
+Thread with taskId 0 exiting
+semaphore destroyed
+Thread TERMINATED
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T06:17:16] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed
+
+[2026-04-23T06:18:03] Starting manual PyBullet worker with /Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/bin/python3.10
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+pybullet build time: Oct 21 2025 17:40:50
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/.conda-spotml/lib/python3.10/site-packages/gym/spaces/box.py:127: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+Traceback (most recent call last):
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/Sim Display/manual_pybullet_worker.py", line 452, in main
+    _, _, terminated, truncated, info = env.step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spot_bullet/src/spot_ml.py", line 887, in step
+    base_obs, _, done, info = self.base_env.step(np.zeros(4, dtype=np.float32))
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/GymEnvs/spot_bezier_env.py", line 194, in step
+    self.spot.Step(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 823, in Step
+    self.ApplyAction(action)
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 818, in ApplyAction
+    self._SetDesiredMotorAngleById(motor_id,
+  File "/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/spot.py", line 453, in _SetDesiredMotorAngleById
+    self._pybullet_client.setJointMotorControl2(
+pybullet.error: Not connected to physics server.
+Manual PyBullet worker failed: Not connected to physics server.
+/Users/Diviprakash/PSU/spot_mini_mini/spotmicro/util/pybullet_data
+[9, 13, 18, 22]
+Action SPACE: Box(-1.0, 1.0, (14,), float32)
+argv[0]=
+Version = 4.1 Metal - 90.5
+Vendor = Apple
+Renderer = Apple M1 Pro
+b3Printf: Selected demo: Physics Server
+startThreads creating 1 threads.
+starting thread 0
+started thread 0 
+MotionThreadFunc thread started
+numActiveThreads = 0
+stopping threads
+Thread with taskId 0 exiting
+Thread TERMINATED
+destroy semaphore
+semaphore destroyed
+destroy main semaphore
+main semaphore destroyed

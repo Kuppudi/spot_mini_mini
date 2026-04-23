@@ -48,15 +48,19 @@ except ModuleNotFoundError as exc:
 
 from camera_sensor import SpotCamera
 from spot_play_ml import (
-    get_training_root,
+    _spotmini_compat_bit_generator_ctor,
+    existing_training_roots,
     load_run_config,
+    load_ppo_model,
     make_env,
     patch_numpy_bit_generator_pickle,
+    resolve_run_dir,
     resolve_model_path,
 )
 from spot_visualization_ml import unwrap_env
 
 
+_spotmini_compat_bit_generator_ctor = _spotmini_compat_bit_generator_ctor
 STOP_REQUESTED = False
 
 
@@ -107,16 +111,21 @@ def write_status(path: Path, **payload) -> None:
 
 def resolve_playable_run_dir(run_dir_arg: str | None) -> Path:
     if run_dir_arg:
-        run_dir = Path(run_dir_arg).expanduser().resolve()
-        if not run_dir.exists():
-            raise SystemExit(f"Run directory not found: {run_dir}")
-        return run_dir
+        return resolve_run_dir(run_dir_arg)
 
-    candidates = sorted(
-        [path for path in get_training_root().iterdir() if path.is_dir()],
-        key=lambda path: path.stat().st_mtime,
-        reverse=True,
-    )
+    candidates = []
+    seen = set()
+    for training_root in existing_training_roots():
+        for path in training_root.iterdir():
+            if not path.is_dir():
+                continue
+            resolved = path.resolve()
+            if resolved in seen:
+                continue
+            seen.add(resolved)
+            candidates.append(resolved)
+
+    candidates = sorted(candidates, key=lambda path: path.stat().st_mtime, reverse=True)
     for run_dir in candidates:
         best_model = run_dir / "best_model" / "best_model.zip"
         if best_model.exists():
@@ -153,9 +162,11 @@ def make_playback_args(seed: int) -> argparse.Namespace:
         target_forward_speed=None,
         episode_steps=None,
         body_height_offset=None,
+        body_pitch_bias_deg=None,
         auto_yaw_gain=None,
         gait_geometry=None,
         enable_camera_observation=None,
+        enable_imu_yaw=None,
         disable_camera_leveling=False,
         camera_pitch_offset_deg=None,
         render=False,
@@ -193,7 +204,13 @@ def patch_numpy_module_aliases_safe() -> None:
 
 
 def cleanup_pid_file(pid_path: Path) -> None:
-    if pid_path.exists():
+    if not pid_path.exists():
+        return
+    try:
+        recorded_pid = int(pid_path.read_text(encoding="utf-8").strip())
+    except Exception:
+        return
+    if recorded_pid == os.getpid():
         pid_path.unlink()
 
 
@@ -226,6 +243,8 @@ def main() -> int:
 
     paths["pid"].write_text(str(os.getpid()), encoding="utf-8")
 
+    run_dir = None
+    env = None
     try:
         run_dir = resolve_playable_run_dir(args.run_dir)
         run_config = load_run_config(run_dir)
@@ -245,15 +264,7 @@ def main() -> int:
             except Exception as exc:
                 vecnormalize_error = str(exc)
 
-        model = PPO.load(
-            str(model_path),
-            env=env,
-            device="auto",
-            custom_objects={
-                "observation_space": env.observation_space,
-                "action_space": env.action_space,
-            },
-        )
+        model = load_ppo_model(model_path, env, context="dashboard camera feed")
 
         raw_env = unwrap_env(env)
         camera = build_camera(raw_env, run_config, width=args.width, height=args.height)
@@ -316,13 +327,28 @@ def main() -> int:
             run_dir=str(run_dir),
             last_frame_time=last_frame_time,
         )
-        env.close()
+        if env is not None:
+            env.close()
         return 0
+    except SystemExit as exc:
+        error = str(exc) or "ML camera worker exited during startup."
+        write_status(
+            paths["status"],
+            state="error",
+            running=False,
+            run_name=run_dir.name if run_dir is not None else "Unavailable",
+            run_dir=str(run_dir) if run_dir is not None else None,
+            error=error,
+        )
+        print(f"ML camera worker failed: {error}", file=sys.stderr)
+        return 1
     except Exception as exc:
         write_status(
             paths["status"],
             state="error",
             running=False,
+            run_name=run_dir.name if run_dir is not None else "Unavailable",
+            run_dir=str(run_dir) if run_dir is not None else None,
             error=str(exc),
         )
         traceback.print_exc()

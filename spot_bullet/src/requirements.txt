@@ -20,10 +20,6 @@ python-dateutil==2.8.2
 six==1.16.0
 zipp==3.17.0
 
-# Simulation
-# Apple Silicon note: if pip fails to build pybullet, install it from conda-forge instead.
-pybullet==3.2.6
-
 # RL / ML
 torch>=2.0.0
 stable-baselines3==2.3.2
@@ -38,6 +34,7 @@ seaborn==0.13.2
 # UI
 streamlit==1.32.0
 plotly==5.18.0
+pywebview>=5.1
 
 # Sensors / Filtering
 filterpy==1.4.5

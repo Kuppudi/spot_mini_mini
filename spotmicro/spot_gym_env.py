@@ -11,6 +11,7 @@ Example: minitaur_gym_env.py
 https://github.com/bulletphysics/bullet3/blob/master/examples/pybullet/gym/pybullet_envs/minitaur/envs/minitaur_gym_env.py
 """
 import math
+import sys
 import time
 import gym
 import numpy as np
@@ -115,6 +116,8 @@ class spotGymEnv(gym.Env):
                  height_field=False,
                  height_field_iters=2,
                  AutoStepper=False,
+                 gui_safe_mode=None,
+                 follow_gui_camera=None,
                  contacts=True):
         """Initialize the spot gym environment.
 
@@ -259,6 +262,16 @@ class spotGymEnv(gym.Env):
         self._ground_id = None
         self._reflection = reflection
         self._env_randomizer = env_randomizer
+        self._gui_safe_mode = (
+            bool(gui_safe_mode)
+            if gui_safe_mode is not None
+            else bool(render and sys.platform == "darwin")
+        )
+        self._follow_gui_camera = (
+            bool(follow_gui_camera)
+            if follow_gui_camera is not None
+            else not self._gui_safe_mode
+        )
         # @TODO fix logging
         self._episode_proto = None
         if self._is_render:
@@ -266,6 +279,13 @@ class spotGymEnv(gym.Env):
                 connection_mode=pybullet.GUI)
         else:
             self._pybullet_client = bullet_client.BulletClient()
+        if self._is_render and self._gui_safe_mode:
+            self._configure_safe_gui()
+        self._rgb_array_renderer = (
+            self._pybullet_client.ER_BULLET_HARDWARE_OPENGL
+            if self._is_render and not self._gui_safe_mode
+            else getattr(self._pybullet_client, "ER_TINY_RENDERER", self._pybullet_client.ER_BULLET_HARDWARE_OPENGL)
+        )
         if self._urdf_version is None:
             self._urdf_version = DEFAULT_URDF_VERSION
         self._pybullet_client.setPhysicsEngineParameter(enableConeFriction=0)
@@ -295,6 +315,26 @@ class spotGymEnv(gym.Env):
     def set_env_randomizer(self, env_randomizer):
         self._env_randomizer = env_randomizer
 
+    def _configure_safe_gui(self):
+        """Disable Bullet visualizer features that are flaky on macOS/Metal."""
+        visualizer_flags = [
+            "COV_ENABLE_GUI",
+            "COV_ENABLE_TINY_RENDERER",
+            "COV_ENABLE_RGB_BUFFER_PREVIEW",
+            "COV_ENABLE_DEPTH_BUFFER_PREVIEW",
+            "COV_ENABLE_SEGMENTATION_MARK_PREVIEW",
+            "COV_ENABLE_PLANAR_REFLECTION",
+            "COV_ENABLE_SHADOWS",
+        ]
+        for flag_name in visualizer_flags:
+            flag = getattr(self._pybullet_client, flag_name, None)
+            if flag is None:
+                continue
+            try:
+                self._pybullet_client.configureDebugVisualizer(flag, 0)
+            except Exception:
+                pass
+
     def configure(self, args):
         self._args = args
 
@@ -313,12 +353,14 @@ class spotGymEnv(gym.Env):
             self._pybullet_client.COV_ENABLE_RENDERING, 0)
         if self._hard_reset:
             self._pybullet_client.resetSimulation()
+            if self._is_render and self._gui_safe_mode:
+                self._configure_safe_gui()
             self._pybullet_client.setPhysicsEngineParameter(
                 numSolverIterations=int(self._num_bullet_solver_iterations))
             self._pybullet_client.setTimeStep(self._time_step)
             self._ground_id = self._pybullet_client.loadURDF("%s/plane.urdf" %
                                                              self._urdf_root)
-            if self._reflection:
+            if self._reflection and not self._gui_safe_mode:
                 self._pybullet_client.changeVisualShape(
                     self._ground_id, -1, rgbaColor=[1, 1, 1, 0.8])
                 self._pybullet_client.configureDebugVisualizer(
@@ -375,6 +417,8 @@ class spotGymEnv(gym.Env):
         self._objectives = []
         self._pybullet_client.resetDebugVisualizerCamera(
             self._cam_dist, self._cam_yaw, self._cam_pitch, [0, 0, 0])
+        if self._is_render and self._gui_safe_mode:
+            self._configure_safe_gui()
         self._pybullet_client.configureDebugVisualizer(
             self._pybullet_client.COV_ENABLE_RENDERING, 1)
         return self._get_observation()
@@ -421,12 +465,16 @@ class spotGymEnv(gym.Env):
             time_to_sleep = self.control_time_step - time_spent
             if time_to_sleep > 0:
                 time.sleep(time_to_sleep)
-            base_pos = self.spot.GetBasePosition()
-            # Keep the previous orientation of the camera set by the user.
-            [yaw, pitch,
-             dist] = self._pybullet_client.getDebugVisualizerCamera()[8:11]
-            self._pybullet_client.resetDebugVisualizerCamera(
-                dist, yaw, pitch, base_pos)
+            if self._follow_gui_camera:
+                base_pos = self.spot.GetBasePosition()
+                try:
+                    # Keep the previous orientation of the camera set by the user.
+                    [yaw, pitch,
+                     dist] = self._pybullet_client.getDebugVisualizerCamera()[8:11]
+                    self._pybullet_client.resetDebugVisualizerCamera(
+                        dist, yaw, pitch, base_pos)
+                except Exception:
+                    pass
 
         action = self._transform_action_to_motor_command(action)
         self.spot.Step(action)
@@ -458,7 +506,7 @@ class spotGymEnv(gym.Env):
         (_, _, px, _, _) = self._pybullet_client.getCameraImage(
             width=RENDER_WIDTH,
             height=RENDER_HEIGHT,
-            renderer=self._pybullet_client.ER_BULLET_HARDWARE_OPENGL,
+            renderer=self._rgb_array_renderer,
             viewMatrix=view_matrix,
             projectionMatrix=proj_matrix)
         rgb_array = np.array(px)
