@@ -28,7 +28,11 @@ if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 
 from spotmicro.GymEnvs.spot_bezier_env import spotBezierEnv
-from spotmicro.util.gui import GUI, IndividualLegGUI
+try:
+    from spotmicro.util.gui import GUI, IndividualLegGUI
+except ImportError:
+    from spotmicro.util.gui import GUI
+    IndividualLegGUI = GUI
 from spotmicro.Kinematics.SpotKinematics import SpotModel
 from spotmicro.Kinematics.LieAlgebra import RPY
 from spotmicro.GaitGenerator.Bezier import BezierGait
