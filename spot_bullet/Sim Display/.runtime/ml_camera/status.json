@@ -8,12 +8,12 @@
   "gait_mode": "four_phase",
   "vecnormalize_loaded": false,
   "vecnormalize_error": "state must be a dict",
-  "episode": 24,
-  "episode_step": 870,
-  "episode_reward": 1760.7735872259364,
-  "forward_speed": 0.11379718780517578,
+  "episode": 50,
+  "episode_step": 1060,
+  "episode_reward": 2710.8185506077134,
+  "forward_speed": 0.10451674461364746,
   "frame_width": 640,
   "frame_height": 360,
-  "last_frame_time": 1776967007.002846,
-  "timestamp": 1776967007.0028539
+  "last_frame_time": 1776980295.8925052,
+  "timestamp": 1776980295.892512
 }

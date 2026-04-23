@@ -235,6 +235,37 @@ python3 spot_bullet/src/spot_train_ml.py \
 - Screenshot 2: Safe refusal message.
 - Screenshot 3: Successful training with a new run name.
 
+## Short UI Dependency Note
+
+### Goal
+
+Document that the local dashboard itself is also part of the platform and can fail differently depending on whether it is opened in a browser or through the local desktop launcher.
+
+### What Was Tested
+
+- The dashboard was opened locally through the Streamlit interface.
+- The platform was checked to confirm that the UI still loaded, rendered the control panels, and showed the ML camera area even when feed-selection state was not fully synchronized.
+
+### Why This Matters
+
+This is a platform dependency case because the dashboard is one of the main user-facing control surfaces. If the UI fails to open, or if the browser/app window behaves differently on another machine, users may think the whole platform is broken even when the simulator and ML worker are still running correctly.
+
+### Prevention Implemented
+
+- The dashboard has a dedicated launcher in `spot_bullet/Sim Display/launch_dashboard.py`.
+- The manual controller has a separate launcher in `spot_bullet/Sim Display/launch_manual_app.py`.
+- The ML camera area can still display the latest frame and worker status, which helps separate a UI issue from a simulator crash.
+- Windows-aware process handling was added so dashboard workers shut down more safely across operating systems.
+
+### Result
+
+The dashboard loaded successfully and remained usable as a local control surface. Even when the UI state and live-feed selection were not perfectly aligned, the platform still exposed enough status information to show that the backend worker was running instead of silently crashing.
+
+### Screenshot Evidence
+
+- Screenshot 1: Dashboard window or browser tab showing the SpotMini control UI loaded.
+- Screenshot 2: Live camera panel showing backend feed activity or status text.
+
 ## Summary Of Preventive Measures
 
 - Native PyBullet GUI is explicitly selected with `--render --bullet-gui`.
@@ -243,6 +274,7 @@ python3 spot_bullet/src/spot_train_ml.py \
 - Batch comparison continues even when one model candidate is bad.
 - Existing training runs are protected from accidental overwrite.
 - VecNormalize compatibility shims are used in playback and comparison so old saved normalization files still load.
+- The dashboard and manual app use launcher-based process handling to improve local UI reliability across machines.
 
 ## Final Notes
 
