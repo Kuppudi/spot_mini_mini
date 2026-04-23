@@ -73,35 +73,10 @@ Run this from the main project folder:
 python spot_bullet\src\spot_tester.py
 ```
 
-### 11. Current known stopping point
-If your environment setup is successful, the next issue you may see is:
+#### 11. Compatibility note
+`spot_tester.py` now includes a fallback for older copies of `spotmicro/util/gui.py`.
 
-```bat
-ImportError: cannot import name 'IndividualLegGUI' from 'spotmicro.util.gui'
-```
-
-That means the environment setup is complete enough to launch `spot_tester.py`, and the remaining issue is a project file mismatch rather than a missing dependency.
-
-
-
-
-## FOR MAC(INTEL) USERS:
-
-### 1. Create environment
-python3 -m venv spotmini-env
-
-### 2. Activate
-source spotmini-env/bin/activate
-
-### 3. Upgrade pip
-pip install --upgrade pip setuptools wheel
-
-### 4. Install dependencies
-pip install -r requirements.txt
-
-### 5. Run
-python src/spot_tester.py
-
+If `IndividualLegGUI` is not available in your local `gui.py`, the tester will automatically fall back to the standard `GUI` class instead of stopping with an import error.
 
 
 
@@ -154,6 +129,26 @@ Run this from the main project folder:
 ```bash
 python spot_bullet/src/spot_tester.py
 ```
+
+
+
+
+## FOR MAC(INTEL) USERS:
+
+### 1. Create environment
+python3 -m venv spotmini-env
+
+### 2. Activate
+source spotmini-env/bin/activate
+
+### 3. Upgrade pip
+pip install --upgrade pip setuptools wheel
+
+### 4. Install dependencies
+pip install -r requirements.txt
+
+### 5. Run
+python src/spot_tester.py
 
 
 
