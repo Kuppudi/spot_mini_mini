@@ -171,7 +171,7 @@ Path = ________/spot_mini_mini/spot_bullet/Sim Display
 
 Before running the manual app, install the app dependencies in the same environment:
 
-python -m pip install streamlit pywebview
+### python -m pip install streamlit pywebview
 
 
 
@@ -182,7 +182,7 @@ python -m pip install streamlit pywebview
 
 ## Run on Mac:
 
-### python3 "spot_bullet/Sim Display/launch_manual_app.py"
+### python "spot_bullet/Sim Display/launch_manual_app.py"
 
 
 
@@ -209,17 +209,18 @@ The original dashboard is still separate from the new manual app.
 
 Path = ________/spot_mini_mini/spot_bullet/Sim Display
 
-## Run on Mac:
 
-python3 "spot_bullet/Sim Display/launch_dashboard.py"
 
 ## Run on Windows:
 
-python "spot_bullet\Sim Display\launch_dashboard.py"
+### python "spot_bullet\Sim Display\launch_dashboard.py"
 
 If pywebview is installed correctly, the dashboard opens in a local desktop window. If pywebview is missing, the normal dashboard can open in a browser.
 
 
+## Run on Mac:
+
+### python "spot_bullet/Sim Display/launch_dashboard.py"
 
 
 

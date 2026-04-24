@@ -1,11 +1,6 @@
 {
-  "state": "stopped",
+  "state": "error",
   "running": false,
-  "worker_version": "manual-trot-side-stride-v1",
-  "control_source": "manual",
-  "command": "stop",
-  "gait_mode": "trot",
-  "terrain_profile": "flat",
-  "step_count": 1349,
-  "timestamp": 1776961978.5678551
+  "error": "Not connected to physics server.",
+  "timestamp": 1776997764.008291
 }

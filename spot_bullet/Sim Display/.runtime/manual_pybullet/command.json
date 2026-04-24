@@ -1,14 +1,4 @@
 {
   "command": "stop",
-  "speed_scale": 0.45,
-  "trot_step_length": 0.05,
-  "trot_back_step_length": 0.04,
-  "trot_turn_step": 0.01,
-  "trot_turn_rate": 0.9,
-  "trot_strafe_step": 0.03,
-  "trot_lateral_amount": 0.8,
-  "trot_step_velocity": 0.54,
-  "trot_curve_height": 0.04,
-  "reset": false,
-  "timestamp": 1776961975.7137449
+  "speed_scale": 0.45
 }
