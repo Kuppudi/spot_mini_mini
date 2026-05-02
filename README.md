@@ -61,6 +61,11 @@ python -m pip install --upgrade pip wheel "setuptools<82"
 python -m pip install gym==0.26.2 gymnasium==0.29.1 stable-baselines3==2.3.2 filterpy==1.4.5
 ```
 
+### 8.5. Install the remaining Python dependencies
+```bat
+python -m pip install spot_bullet/src/requirements.txt
+```
+
 ### 9. Verify PyBullet is working
 ```bat
 python -c "import pybullet; print('pybullet works')"
@@ -118,9 +123,14 @@ conda install -c conda-forge numpy scipy matplotlib opencv pybullet -y
 python -m pip install --upgrade pip wheel "setuptools<82"
 ```
 
-### 8. Install the remaining Python dependencies
+### 8. Install the secondary Python dependencies
 ```bash
 python -m pip install gym==0.26.2 gymnasium==0.29.1 stable-baselines3==2.3.2 filterpy==1.4.5
+```
+
+### 8.5. Install final dependencies
+```bash
+python -m pip install -r spot_bullet/src/requirements.txt
 ```
 
 ### 9. Start the tester

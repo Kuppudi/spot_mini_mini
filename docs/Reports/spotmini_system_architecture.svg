@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2100" height="1460" viewBox="0 0 2100 1460">
+
+<defs>
+  <marker id="arrowhead" markerWidth="12" markerHeight="8" refX="10" refY="4" orient="auto">
+    <polygon points="0 0, 12 4, 0 8" fill="#444444"/>
+  </marker>
+  <style>
+    .title { font: bold 42px Arial, sans-serif; fill: #202124; }
+    .subtitle { font: 22px Arial, sans-serif; fill: #6b7280; }
+    .card-title { font: bold 28px Arial, sans-serif; fill: #202124; }
+    .body { font: 20px Arial, sans-serif; fill: #202124; }
+    .small { font: 17px Arial, sans-serif; fill: #6b7280; }
+    .key { font: bold 18px Arial, sans-serif; fill: #202124; }
+    .arrow { stroke: #444444; stroke-width: 4; fill: none; marker-end: url(#arrowhead); }
+    .line { stroke: #444444; stroke-width: 4; fill: none; }
+  </style>
+</defs>
+
+<rect width="2100" height="1460" fill="#f6f4ef"/>
+<text x="1050.0" y="58" text-anchor="middle" class="title">SpotMini System Architecture and Training Pipeline</text>
+<text x="1050.0" y="100" text-anchor="middle" class="subtitle">Figure 3. Cleaner view of how tools, ML scripts, gait logic, and simulation fit together in the final capstone workflow.</text>
+<rect x="1620" y="86" width="340" height="120" rx="16" ry="16" fill="#fffdf8" stroke="#444444" stroke-width="2"/>
+<text x="1642" y="114" class="key">Key</text>
+<rect x="1640" y="134" width="26" height="14" rx="4" ry="4" fill="#fffdf8" stroke="#444444" stroke-width="2"/>
+<text x="1678" y="146" class="small">base platform layer</text>
+<rect x="1640" y="156" width="26" height="14" rx="4" ry="4" fill="#f5cf8e" stroke="#444444" stroke-width="2"/>
+<text x="1678" y="168" class="small">capstone workflow / ML layer</text>
+<rect x="1640" y="178" width="26" height="14" rx="4" ry="4" fill="#f46d61" stroke="#444444" stroke-width="2"/>
+<text x="1678" y="190" class="small">newest rough-transfer addition</text>
+<rect x="620" y="120" width="860" height="150" rx="22" ry="22" fill="#fffdf8" stroke="#202124" stroke-width="3"/>
+<text x="648" y="168" class="card-title">Operator / Capstone Team</text>
+<text x="648" y="212" class="body">Chooses runs, reviews charts and videos,</text>
+<text x="648" y="239" class="body">adjusts gait and reward settings,</text>
+<text x="648" y="266" class="body">and decides which direction to test next.</text>
+<rect x="110" y="360" width="540" height="180" rx="22" ry="22" fill="#f5cf8e" stroke="#202124" stroke-width="3"/>
+<text x="138" y="408" class="card-title">Launchers and Debug Apps</text>
+<text x="138" y="452" class="body">launch_dashboard.py, display.py,</text>
+<text x="138" y="479" class="body">launch_manual_app.py, display_manual.py,</text>
+<text x="138" y="506" class="body">manual_pybullet_worker.py</text>
+<rect x="720" y="360" width="660" height="180" rx="22" ry="22" fill="#f5cf8e" stroke="#202124" stroke-width="3"/>
+<text x="748" y="408" class="card-title">Experiment Scripts</text>
+<text x="748" y="452" class="body">spot_train_ml.py</text>
+<text x="748" y="479" class="body">spot_play_ml.py</text>
+<text x="748" y="506" class="body">spot_compare_ml.py</text>
+<text x="748" y="533" class="body">spot_tester.py</text>
+<rect x="1470" y="360" width="520" height="180" rx="22" ry="22" fill="#f5cf8e" stroke="#202124" stroke-width="3"/>
+<text x="1498" y="408" class="card-title">Training Artifacts and Evaluation</text>
+<text x="1498" y="452" class="body">training_runs, checkpoints,</text>
+<text x="1498" y="479" class="body">VecNormalize stats, eval plots, GIF previews,</text>
+<text x="1498" y="506" class="body">comparison tables, and crash screenshots</text>
+<rect x="640" y="620" width="820" height="150" rx="22" ry="22" fill="#f5cf8e" stroke="#202124" stroke-width="3"/>
+<text x="668" y="668" class="card-title">RL Policy and Run Manager</text>
+<text x="668" y="712" class="body">Stable-Baselines3 PPO plus run configs,</text>
+<text x="668" y="739" class="body">warm starts, safer loading, and playback logic</text>
+<rect x="300" y="880" width="620" height="160" rx="22" ry="22" fill="#f5cf8e" stroke="#202124" stroke-width="3"/>
+<text x="328" y="928" class="card-title">Environment Variants</text>
+<text x="328" y="972" class="body">SpotMLWalkEnv, dual-IMU variants,</text>
+<text x="328" y="999" class="body">rough-terrain modules, and height residual envs</text>
+<rect x="1165" y="880" width="670" height="180" rx="22" ry="22" fill="#f46d61" stroke="#202124" stroke-width="3"/>
+<text x="1193" y="928" class="card-title">Teacher + Joint Residual Transfer</text>
+<text x="1193" y="972" class="body">Uses dual_imu_longwalk_v1 as the walking prior,</text>
+<text x="1193" y="999" class="body">then learns bounded rough-terrain corrections</text>
+<rect x="640" y="1110" width="820" height="170" rx="22" ry="22" fill="#fffdf8" stroke="#202124" stroke-width="3"/>
+<text x="668" y="1158" class="card-title">Gait and Control Core</text>
+<text x="668" y="1202" class="body">Bezier gait generation, four-phase scheduling,</text>
+<text x="668" y="1229" class="body">IK, posture trim, yaw stabilization,</text>
+<text x="668" y="1256" class="body">and per-leg swing shaping</text>
+<rect x="360" y="1295" width="1380" height="145" rx="22" ry="22" fill="#fffdf8" stroke="#202124" stroke-width="3"/>
+<text x="388" y="1343" class="card-title">Simulation and Robot Layer</text>
+<text x="388" y="1387" class="body">PyBullet + SpotMini URDF, terrain probes, rough heightfields,</text>
+<text x="388" y="1414" class="body">leveled camera features, dual virtual IMUs, and physics randomization</text>
+<line x1="1050.0" y1="270" x2="1050.0" y2="360" class="arrow"/>
+<line x1="650" y1="450.0" x2="720" y2="450.0" class="arrow"/>
+<line x1="1380" y1="450.0" x2="1470" y2="450.0" class="arrow"/>
+<line x1="1050.0" y1="540" x2="1050.0" y2="620" class="arrow"/>
+<line x1="1050.0" y1="770" x2="1050.0" y2="1110" class="arrow"/>
+<line x1="1050.0" y1="770" x2="930.0" y2="770" class="line"/>
+<line x1="930.0" y1="770" x2="930.0" y2="854" class="line"/>
+<line x1="930.0" y1="854" x2="610.0" y2="880" class="arrow"/>
+<line x1="1460" y1="695.0" x2="1165" y2="970.0" class="arrow"/>
+<line x1="1050.0" y1="1280" x2="1050.0" y2="1295" class="arrow"/>
+<line x1="610.0" y1="1040" x2="610.0" y2="1275" class="line"/>
+<line x1="610.0" y1="1275" x2="690.0" y2="1295" class="arrow"/>
+<line x1="1500.0" y1="1060" x2="1500.0" y2="1275" class="line"/>
+<line x1="1500.0" y1="1275" x2="1410.0" y2="1295" class="arrow"/>
+<line x1="1050.0" y1="1280" x2="1050.0" y2="1295" class="arrow"/>
+<line x1="1050.0" y1="770" x2="1050.0" y2="835" class="line"/>
+<line x1="1050.0" y1="835" x2="610.0" y2="835" class="line"/>
+<line x1="1050.0" y1="835" x2="1500.0" y2="835" class="line"/>
+<line x1="610.0" y1="835" x2="610.0" y2="880" class="arrow"/>
+<line x1="1500.0" y1="835" x2="1500.0" y2="880" class="arrow"/>
+<line x1="610.0" y1="1040" x2="610.0" y2="1271" class="line"/>
+<line x1="610.0" y1="1271" x2="690.0" y2="1295" class="arrow"/>
+<line x1="1500.0" y1="1060" x2="1500.0" y2="1271" class="line"/>
+<line x1="1500.0" y1="1271" x2="1410.0" y2="1295" class="arrow"/>
+</svg>
